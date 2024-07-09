@@ -18,5 +18,5 @@ def chat_view(request):
             message.author = request.user
             message.save()
             context = {'message':message, 'user':request.user}
-            return render(request, 'a_rtchat/partials/chat_message_p.html', {'context':context})
+            return render(request, 'a_rtchat/partials/chat_message_p.html',context)
     return render(request, 'a_rtchat/chat.html', {'chat_messages':chat_messages, 'form':form})

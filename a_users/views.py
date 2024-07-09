@@ -60,9 +60,6 @@ def profile_emailchange(request):
                 return redirect('profile-settings')
             
             form.save() 
-            
-            # Then Signal updates emailaddress and set verified to False
-            
             # Then send confirmation email 
             send_email_confirmation(request, request.user)
             
