@@ -10,13 +10,13 @@ def chat_view(request):
     chat_messages = chat_group.chat_messages.all()[:20]
     form = ChatMessageCreateForm()
 
-    if request.method == 'POST':
+    if request.htmx:
         form = ChatMessageCreateForm(request.POST)
         if form.is_valid():
             message = form.save(commit=False)
-            message.group = chat_group
+            message.group = chat_group 
             message.author = request.user
             message.save()
             context = {'message':message, 'user':request.user}
-            return render(request, 'chat.html', {'context':context})
+            return render(request, 'a_rtchat/partials/chat_message_p.html', {'context':context})
     return render(request, 'a_rtchat/chat.html', {'chat_messages':chat_messages, 'form':form})
