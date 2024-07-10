@@ -57,7 +57,7 @@ class ChatRoomConsumer(WebsocketConsumer):
     def update_online_users_count(self):
         event = {
             'type':'online_users_count',
-            'count':self.chatroom.users_online.count(),
+            'count':self.chatroom.users_online.count()-1,
         }
         async_to_sync(self.channel_layer.group_send)(
             self.chatroom_name, event
