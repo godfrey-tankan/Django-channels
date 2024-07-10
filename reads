@@ -1,0 +1,6 @@
+install environ - pip install django-environ
+toogle debug mode accordingly
+
+configure postgress db:
+pip install dj-database-url
+pip install psycopg2-binary
