@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from environ import Env
+import dj_database_url
 
 
 env = Env()
@@ -72,6 +73,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -107,27 +109,56 @@ ASGI_APPLICATION = 'a_core.asgi.application'
 #     }
 # }
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("redis://default:HGfcMPQEJLMsnzYyXVISTNzJPPhZifpS@roundhouse.proxy.rlwy.net:24861")],
+if ENVIRONMENT == 'production':
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels_redis.core.RedisChannelLayer",
+            "CONFIG": {
+                "hosts": [env('REDIS_URL')],
+            },
         },
-    },
-}
+    }
+else:
+    CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels.layers.InMemoryChannelLayer'
+            }
+    }
+
+POSTGRES_LOCALLY = True
+
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
+    pass
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql',
+    #         'NAME': env('DB_NAME'),
+    #         'USER': env('DB_USER'),
+    #         'PASSWORD': env('DB_PASSWORD'),
+    #         'HOST': env('DB_HOST'),
+    #         'PORT': env('DB_PORT'),
+    #     }
+    # }
+    STORAGE= {
+        "staticfiles":{
+            "BACKEND":"django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+    }
 
 
-
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+
 
 
 # Password validation
@@ -163,6 +194,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+STATIC_ROOT= BASE_DIR / 'staticfiles'
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [ BASE_DIR / 'static' ]
