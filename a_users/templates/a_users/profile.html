@@ -11,7 +11,7 @@
         <div class="mt-8 hyphens-auto">{{ profile.info|linebreaksbr }}</div>
         {% endif %}
         {% if profile.user != user %}
-        <a class="button" href="{% url 'start-chart' profile.user.username%}"> Chats</a>
+        <a class="button" href="{% url 'start-chat' profile.user.username%}"> Chats</a>
         {% endif %}
     </div>
 </div>
