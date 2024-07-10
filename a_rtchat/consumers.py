@@ -18,11 +18,18 @@ class ChatRoomConsumer(WebsocketConsumer):
         )
         self.accept()
     
+        if not self.user in self.chatroom.users_online.all():
+            self.chatroom.users_online.add(self.user)
+            self.update_online_users_count()
+    
     def disconnect(self, close_code):
         async_to_sync(self.channel_layer.group_discard)(
             self.chatroom_name,
             self.channel_name
         )
+        if self.user in self.chatroom.users_online.all():
+            self.chatroom.users_online.remove(self.user)
+            self.update_online_users_count()
 
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
@@ -47,4 +54,17 @@ class ChatRoomConsumer(WebsocketConsumer):
         context = {'message':message, 'user':self.user}
         html = render_to_string('a_rtchat/partials/chat_message_p.html', context=context)
         self.send(text_data=html)
+    def update_online_users_count(self):
+        event = {
+            'type':'online_users_count',
+            'count':self.chatroom.users_online.count(),
+        }
+        async_to_sync(self.channel_layer.group_send)(
+            self.chatroom_name, event
+        )
+    def online_users_count(self, event):
+        count = event['count']
+        html = render_to_string('a_rtchat/partials/online_count.html',{'online_count':count})
+        self.send(text_data=html)
+        
 
