@@ -1,6 +1,6 @@
 {% if message.author == user%}
 <li class="flex justify-end mb-4">
-  <div class="bg-green-200 rounded-l-lg rounded-tr-lg p-4 max-w-[75%]">
+  <div class="bg-green-200 rounded-l-lg rounded-tr-lg p-4 max-w-[75%] mobile-messages">
     <span>{{message.body}}</span>
   </div>
   <div class="flex items-end">
@@ -14,7 +14,7 @@
 </li>
 {% else %}
 <li>
-  <div class="flex justify-start">
+  <div class="flex justify-start ">
     <div class="flex items-end mr-2">
       <a href="{% url 'profile' message.author.username %}">
         <img
@@ -31,7 +31,7 @@
         ></path>
       </svg>
     </div>
-    <div class="bg-white p-4 max-w-[75%] rounded-r-lg rounded-tl-lg">
+    <div class="bg-white p-4 max-w-[75%] rounded-r-lg rounded-tl-lg  mobile-messages">
       <span>{{message.body}}</span>
     </div>
   </div>

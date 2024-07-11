@@ -105,18 +105,67 @@
         .graylight-dot {
             @apply rounded-full bg-gray-300 p-1.5
         }
+
+        /* Mobile-friendly styles */
+        @media (max-width: 767px) {
+            h1 {
+                @apply text-2xl;
+            }
+            h2 {
+                @apply text-lg;
+            }
+            .mobile-messages{
+                font-size: 14px;
+                padding: 10px;
+            }
+            .button, button, [type='submit'], [type='button'] {
+                @apply px-2 py-3;
+            }
+            .navitems > li > a {
+                @apply h-5 px-1;
+            }
+            .header-class{
+                display: none;
+            }
+            .chat-container{
+                @apply absolute top-0 left-0 w-full;
+               
+
+            }
+            .mobile-chat-container{
+                padding-top: 80px;
+                padding-bottom: 30px;
+
+            }
+            .private-note{
+                font-size: 10px;
+                color: rgb(51, 70, 76);
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                margin-left: 10%;
+            }
+            .mobile-header{
+               background-color: rgb(26, 37, 46);
+               @apply fixed top-0 left-0 w-full;
+
+                
+            }
+            .mobile-styles{
+                @apply fixed bottom-0 left-0 w-full;
+            }
+            .mobile-styles input{
+                padding: 0.5rem;
+            }
+            .textarea, textarea, input {
+                @apply py-3 px-1;
+            }
+        }
     </style>
 </head>
 <body class="{% block class %}{% endblock %}">
-	
     {% include 'includes/messages.html' %}
-
     {% include 'includes/header.html' %}
-
     {% block layout %}
     {% endblock %}
-
     {% block javascript %}{% endblock %}
-
 </body>
 </html>
