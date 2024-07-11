@@ -11,13 +11,13 @@
     <div id="online-icon" class="gray-dot absolute top-2 left-2"></div>
       <a href="{% url 'profile' other_user.username %}">
         <div class="flex items-center gap-2 p-4 sticky top-0 z-10">
-        <img
-          class="w-10 h-10 rounded-full object-cover"
-          src="{{ other_user.profile.avatar }}"
-        />
-        <div>
-          <span class="font-bold text-white">{{ other_user.profile.name }}</span>
-          <span class="text-sm font-light text-gray-400">@{{ other_user.username }}</span>
+          <img
+            class="w-10 h-10 rounded-full object-cover"
+            src="{{ other_user.profile.avatar }}"
+          />
+          <div>
+            <span class="font-bold text-white">{{ other_user.profile.name }}</span>
+          <!-- <span class="text-sm font-light text-gray-400">@{{ other_user.username }}</span> hello -->
         </div>
         </div>
       </a>
@@ -28,7 +28,11 @@
 
     </div>
     <div id="chat_container" class="overflow-y-auto grow mobile-chat-container">
+      {% if other_user %}
       <span class="private-note">This is a private chat noone outside of this chat will see your messages.</span>
+      {% else %}
+      <span class="private-note"></span>
+      {% endif %}
       <ul id="chat_messages" class="flex flex-col justify-end gap-2 p-4">
         {% for message in chat_messages reversed %} 
             {% include 'a_rtchat/chat_message.html' %}

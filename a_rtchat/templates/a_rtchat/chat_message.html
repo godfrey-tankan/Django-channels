@@ -37,7 +37,10 @@
   </div>
   <div class="text-sm font-light py-1 ml-10">
     <!-- <span class="text-white">{{message.author.profile.name}}</span> -->
+     {% if other_user %}
+     {% else %}
     <span class="text-gray-400 user-name-styles">@{{message.author.username}}</span>
+    {% endif %}
   </div>
 </li>
 {% endif %}
