@@ -105,6 +105,21 @@
         .graylight-dot {
             @apply rounded-full bg-gray-300 p-1.5
         }
+        .mobile-messages{
+                font-size: 14px;
+                padding: 10px;
+            }
+            .chat-container{
+                @apply absolute  right-10 w-1/4;
+
+            }
+            .all-users{
+                @apply bg-gray-800;
+                @apply absolute  left-1 w-2/4;
+                min-height: 100%;
+                background-color: rgb(55, 55, 58);
+
+            }
 
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
@@ -127,8 +142,14 @@
             .header-class{
                 display: none;
             }
+            .all-users{
+                @apply absolute top-0 left-0 w-full;
+
+
+            }
             .chat-container{
                 @apply absolute top-0 left-0 w-full;
+                display: none;
                
 
             }
