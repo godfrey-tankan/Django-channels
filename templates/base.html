@@ -16,6 +16,9 @@
         [x-cloak] { 
             display: none !important; 
         }
+        body{
+            overflow: hidden;
+        }
         h1 {
             @apply text-4xl font-bold mb-4
         }
@@ -81,7 +84,7 @@
             @apply bg-white pl-0
         }
         .textarea, textarea, input {
-            @apply w-full rounded-lg py-4 px-5 bg-gray-100
+            @apply w-full rounded-lg py-2 px-3 bg-gray-100
         }
         .errorlist li {
             @apply p-1 pl-4 border-l-red-500 border-l-4 border-solid mb-2 text-red-500
@@ -105,21 +108,24 @@
         .graylight-dot {
             @apply rounded-full bg-gray-300 p-1.5
         }
+        .scroll-lock{
+            overflow: hidden;
+        }
         .mobile-messages{
                 font-size: 14px;
                 padding: 10px;
             }
-            .chat-container{
-                @apply absolute  right-10 w-1/4;
+        .chat-container{
+            @apply absolute  right-6 w-3/4 h-full ;
 
-            }
-            .all-users{
-                @apply bg-gray-800;
-                @apply absolute  left-1 w-2/4;
-                min-height: 100%;
-                background-color: rgb(55, 55, 58);
+        }
+        .all-users{
+            @apply bg-gray-800;
+            @apply absolute  left-6 w-1/4;
+            min-height: 100%;
+            background-color: rgb(55, 55, 58);
 
-            }
+        }
 
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
@@ -139,8 +145,9 @@
             .navitems > li > a {
                 @apply h-5 px-1;
             }
-            .header-class{
-                display: none;
+            .header-container{
+                @apply fixed top-0 left-0 w-1/4;
+                
             }
             .all-users{
                 @apply absolute top-0 left-0 w-full;
