@@ -20,7 +20,6 @@ def profile_view(request, username=None):
 
 @login_required
 def profile_edit_view(request):
-    print('request path is ...',request.path)
     form = ProfileForm(instance=request.user.profile)  
     
     if request.method == 'POST':
