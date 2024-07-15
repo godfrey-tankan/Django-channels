@@ -23,3 +23,16 @@ class GroupMessage(models.Model):
     
     class Meta:
         ordering = ['-created_at']
+
+class Reviews(models.Model):
+    name = models.CharField(max_length=100)
+    review = models.CharField(max_length=1000)
+    email = models.EmailField()
+    phone = models.CharField(max_length=12)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} : {self.review[:20]}'
+    
+    class Meta:
+        ordering = ['-created_at']

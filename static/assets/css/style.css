@@ -16,6 +16,7 @@
     /* Pretty Modern Browsers */
       url("{% static 'assets/fonts/fontawesome-webfont.svg' %}") format("svg"); /* Legacy iOS */
 }
+
 .bg-nav {
   background-color: #203985;
 }
@@ -286,9 +287,20 @@ input {
 .bg-theme {
   background-color: #203985;
 }
+.text-styles{
+  font-size: 30px;
+  color: #3d3d3d;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 .home-nav{
   display: none;
   visibility: hidden;
+}
+.big-quote {
+  color: #333;
+  border-left: 5px solid #ccc;
 }
 
 .align-center {

@@ -32,6 +32,7 @@
 <link href="{% static 'assets/css/profile.css' %}" rel="stylesheet" />
 <link href="{% static 'assets/css/mobile_phones_nav.css' %}" rel="stylesheet" />
 <link href="{% static 'assets/css/call-actions.css' %}" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
@@ -125,7 +126,9 @@
         font-size: 1.125rem;
         font-weight: bold;
       }
-    
+      .logo-text:hover{
+        color: #bfbfc0;
+      }
       .nav-container {
         display: block;
         position: relative;
@@ -549,24 +552,20 @@
               class="services-items services-carousel owl-carousel owl-theme"
             >
               <!-- Single Item -->
-              <div class="item">
-                <!-- <div class="thumb">
-                  <img src="assets/img/s1.jpg" alt="Thumb" />
-                </div> -->
-                <div class="info">
-                  <h4>
-                    <a href="#">Francisco Pierce</a>
-                  </h4>
-                  <p>
-                    Direct enough off others say eldest may exeter she. Possible
-                    all ignorant supplied get settling marriage recurred.
-                  </p>
-                  <div class="button" style="background-color: #172554;">
-                    <span>01</span>
-                    <a class="text-whitex" style="color: rgb(186, 189, 191);"  href="#">Read More</a>
+              {% if reviews %}
+              {% for review in reviews %}
+                <div class="item">
+                  <div class="info">
+                    <h4><a href="#">&mdash; {{ review.name }}</a></h4>
+                    <p class="big-quote"> "{{ review.review }}"</p>
+                    <div class="button" >
+                      <span class="text-styles">{{ review.id }}</span>
+                      <a  style="color: rgb(75, 75, 75);" href="#">Read More</a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              {% endfor %}
+            {% endif %}
               <!-- End Single Item -->
               <!-- Single Item -->
              
@@ -737,8 +736,6 @@
     </div>
     <!-- End Portfolio -->
     <!-- Start Projects Area 
-  
-
   
     ============================================= -->
     <div class="why-us-area default-padding bg-gray">
@@ -925,12 +922,13 @@
 
             <div class="col-lg-8 left-item">
               <div class="content">
-                <h2>Let's Privately Talk About Needs</h2>
+                <h2>Leave Us A Review.</h2>
                 <form
-                  action="{% static 'assets/mail/contact.php' %}"
+                  action="reviews/"
                   method="POST"
                   class="contact-form"
-                >
+                  >
+                  {% csrf_token %}
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="form-group">
@@ -985,8 +983,9 @@
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                      <button type="submit" name="submit" id="submit">
-                        Send Message <i class="fa fa-paper-plane"></i>
+                     
+                      <button type="button" name="submit" id="submit" onclick="submitForm()">
+                        Submit
                       </button>
                     </div>
                   </div>
@@ -1226,6 +1225,36 @@
       $(".navbar-nav>li>a").on("click", function () {
         $(".navbar-collapse").collapse("hide");
       });
+      function submitForm() {
+  // Get the CSRF token from the DOM
+  const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+
+  // Get the form data
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    comments: document.getElementById('comments').value,
+    csrfmiddlewaretoken: csrfToken, // Include the CSRF token in the form data
+  };
+
+  // Send the POST request using Axios
+  axios.post('/reviews/', formData, {
+    headers: {
+      'X-CSRFToken': csrfToken, // Include the CSRF token in the request headers
+    },
+  })
+    .then((response) => {
+      // Handle the successful response
+      console.log(response.data);
+      // Display a success message or update the UI
+    })
+    .catch((error) => {
+      // Handle the error
+      console.error(error);
+      // Display an error message or update the UI
+    });
+}
     </script>
   </body>
 </html>

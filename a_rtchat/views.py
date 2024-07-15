@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.http import Http404
 from .content_processor import custom_context
+import json
 
 # Create your views here.
 @login_required
@@ -36,6 +37,8 @@ def chat_view(request,chatroom_name='public-chat'):
 
 def home(request):
     context =custom_context(request)
+    reviews = Reviews.objects.all()[:10]
+    context['reviews']= reviews
     return render(request, 'index.html', context)
 
 @login_required
@@ -62,3 +65,27 @@ def get_object_or_create_chatroom(request,user_name):
 
     return redirect('chatroom',chatroom.group_name)
     
+def reviews(request):
+    data = request.body
+    print(data)
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            reviews = Reviews.objects.create(
+                name = data['name'],
+                phone = data['phone'],
+                email = data['email'],
+                review = data['comments']
+            )
+        except:
+            ...
+        
+    try:
+        reviews = Reviews.objects.all()[:10]
+    except:
+        reviews =None
+    context ={
+        'reviews':reviews
+    }
+   
+    return render(request, 'index.html', context)

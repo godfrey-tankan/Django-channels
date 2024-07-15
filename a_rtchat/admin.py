@@ -14,3 +14,9 @@ class GroupMessageAdmin(admin.ModelAdmin):
     list_filter = ['group','author']
     search_fields = ['group','author','body']
     date_hierarchy = 'created_at'
+
+@admin.register(Reviews)
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ['name','review','email']
+    list_filter = ['name','email']
+    search_fields = ['review','name']

@@ -1,0 +1,14 @@
+Subject: Email Confirmation - collegelink
+From: gtkandeya@gmail.com
+To: user@gmail.com
+Date: Mon, 15 Jul 2024 11:09:43 -0000
+Message-ID: <172104178395.49855.17026676369715044717@tnqn>
+
+Hello from example.com!
+
+You're receiving this email because user test has given your email address to register an account on example.com.
+
+To confirm this is correct, go to http://127.0.0.1:8000/accounts/confirm-email/Ng:1sTJaR:oxc-yx94EoITuMxSC6JDiPb8mIoPDDljTACBjPvPBOk/
+
+Thank you for using example.com!
+example.com
