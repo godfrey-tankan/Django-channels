@@ -286,6 +286,10 @@ input {
 .bg-theme {
   background-color: #203985;
 }
+.home-nav{
+  display: none;
+  visibility: hidden;
+}
 
 .align-center {
   align-items: center;
