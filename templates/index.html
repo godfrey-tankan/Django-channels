@@ -297,7 +297,6 @@
                 <p>
                   {% if is_authenticated %}
                     Hey <span style="color: rgba(0, 128, 0, 0.538);font-weight: bolder;">{{ username }} 
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdJJREFUSEu11c2rTWEUx/HPRSIRcScSRV6Sl3InSIpkoAyIjEgykZGMxIC6MTGgFAP+AUUmMhIRSaGIGZJQXlLKawb20jo6tu3svU/dp06dwbO+6/f81sseMIJnYATZmsAn4hjWYybe4i7240UvcXXwKXiAWRWQb1iHW/9LUAe/gM24iUO4j9nYh514ifn4WpWgF3wMQt33tONDCXAPy7A6k//D7wVfiMf57FUVyo4WiQ9gD860VT4ZH/EISyqCT2EvNuFSW3jcf4hFWJyv6DDG4SmmYUaR5F0/8LW4ivc4mZ0zJ61YUAAP40i/3RJx8fTjCLXd53R2TRS88tS1Yiconr4tOyOsupiv6DngdfCpGMJSTOgi/cSTTPC8rfIAncDuBrvnBnZUrYIq5VGw611dcK0IfpbD1Mk1OgdrOebhc9p2uVtMGT4ql1JYERO4EW96qB9biDhbtOV2fMLcXGy/Q8rwgxhG+Bi9HYqanPPFHGzFlULchk5AGR4rNNbqmrSmCTjuTMLrLHp01quy8kj0A2HN+PzfFB73bmNF/u6U4YPpVxQvitr2nMMubCksjVX9l+dRnJX4kkVtC4+umZ79H1+rRp+5tkn+3K+b0L7BEfgL4GFSGFiEAecAAAAASUVORK5CYII="/>
                     </span>,create moments tonight with 
                     {% if gender == 'male' %}
                       Girls
@@ -307,8 +306,7 @@
                       People
                     {% endif %}
                     that are looking for fun moments on campus, see their profiles
-                     <a href="accounts/login/" class="link" id="here-text">here
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
+                     <a href="profiles" class="link" id="here-text">here
 
 
                      </a>.
@@ -325,11 +323,11 @@
             <div class="single-item feature col-lg-4" alt="datin">
               <div class="item">
                 <img src="{% static 'assets/img/d2.png' %}" />
-                <h5><a href="#">FIND LOVE</a></h5>
+                <h5><a href="profiles/">FIND LOVE</a></h5>
                 <p>
                   {% if is_authenticated  %}
                   {% if request.user.interests != 'love' %}
-                    You can always change your <a class="link" onclick="openPopup()" href="#" >interests</a> anytime to find a match for yourself with people that are looking for true love.
+                    You can always change your <a class="link" href="profile" >interests</a> anytime to find a match for yourself with people that are looking for true love.
                   {% else %}
                     Hey {{ request.user.name }}, there are 1000+ lonely
                     {% if is_authenticated %}
@@ -361,7 +359,7 @@
                 <p>
                   
                   {% if is_authenticated  %}
-                  {% if request.user.interests != 'nostrings' %}
+                  {% if interests != 'nostrings' %}
                     For fun moments, no strings attached or paid hookups,you can change your <a class="link" onclick="openPopup()" href="#">interests</a> to get started.
                   {% else %}
                     200+
@@ -379,7 +377,7 @@
                     </a>.
                   {% endif %}
                 {% else %}
-                Are you looking for fun moments? <a href="auth/" class="link">login</a> to see available profiles.
+                Are you looking for fun moments? <a href="accounts/login/" class="link">login</a> to see available profiles.
                 {% endif %}
 
                 </p>
