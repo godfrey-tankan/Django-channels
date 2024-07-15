@@ -31,6 +31,12 @@ def chat_view(request,chatroom_name='public-chat'):
             return render(request, 'a_rtchat/partials/chat_message_p.html',context)
         
     context = {'chat_messages':chat_messages, 'form':form, 'chatroom_name':chatroom_name, 'other_user':other_user}
+    return render(request, 'a_rtchat/chat.html', context)
+
+def home(request):
+    profile = get_object_or_404(User, id=request.user.id)
+
+    context = {'name':profile.username}
     return render(request, 'index.html', context)
 
 @login_required

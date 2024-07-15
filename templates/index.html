@@ -1,4 +1,6 @@
+{% extends 'layouts/blank.html' %} {% block content %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en" >
   <head>
@@ -55,72 +57,7 @@
     <body>
         <!-- START BIG SCREEN NAV -->
         <header>
-          <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-sticky">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                  <img src="{% static 'assets/img/logo.png' %}" class="logo" alt="Logo">
-              </a>
-              <button id="navbar-toggler-small" class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span id="navbar-toggler-small" class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}">
-                      {% if is_authenticated %}
-                        <a href="#" style="color: #ffffff;display: flex;margin-top: -4px;position: absolute;right: 1%;">
-                          <button id="profile-container" style="background-color: transparent;color: #e2e2e2;">
-                      <img style="width: 30px; height: 30px;border: 1px solid #686868; border-radius: 50%;" src="{{profile_pic_path}}" alt="">
-
-                            hello, {{ username }}!</button>
-                          </a>
-                        </a>
-                      {% else %}
-                       <a href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}"  id="login-button">Login</a> 
-                      {% endif %}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div id="zephyr-menu" class="zephyr-menu d-md-none">
-            <div class="zephyr-menuu" id="zephyr-menu">
-              <ul class="celestial-nav">
-                <li>
-                  <a href="#home">Home</a>
-                </li>
-                <li>
-                  <a href="#blog">Blog</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact Us</a>
-                </li>
-                <li id="opaline-btn">
-                  <a  href="login" style="background-color: transparent;">
-                    {% if is_authenticated %}
-                    <a href="#"   style="background-color: transparent;">
-                      <button class="profile-button" id="profile-containers">
-                       
-                        hello, <span >{{ username }}!</span>
-                      </button>
-                    </a>
-                  </a>
-                  {% else %}
-                  <a href="login/"  id="login-button-mobile">Login</a> 
-                    {% endif %}
-                </li>
-              </ul>
-            </div>
-          </div>
+          
         </header>
         
         <!-- END BIG SCREEN NAV -->
@@ -224,7 +161,7 @@
                             <a
                             data-animation="animated slideInUp"
                             class="cta-button btn btn-theme effect btn-md angle"
-                             href="auth/">Login</a>
+                             href="accounts/login/">Login</a>
                           {% endif %}
                         </div>
                       </div>
@@ -356,10 +293,10 @@
             <div class="single-item feature col-lg-4">
               <div class="item">
                 <img src="{% static 'assets/img/d1.png' %}" alt="dating" />
-                <h5><a href="#">CAMPUS VIBES</a></h5>
+                <h5><a href="profiles/">CAMPUS VIBES</a></h5>
                 <p>
-                  {% if is_authenticated%}
-                    Hey <span style="color: rgba(0, 128, 0, 0.538);font-weight: bolder;" onclick="openPopup()">{{ username }} 
+                  {% is_authenticated %}
+                    Hey <span style="color: rgba(0, 128, 0, 0.538);font-weight: bolder;">{{ name }} 
                       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdJJREFUSEu11c2rTWEUx/HPRSIRcScSRV6Sl3InSIpkoAyIjEgykZGMxIC6MTGgFAP+AUUmMhIRSaGIGZJQXlLKawb20jo6tu3svU/dp06dwbO+6/f81sseMIJnYATZmsAn4hjWYybe4i7240UvcXXwKXiAWRWQb1iHW/9LUAe/gM24iUO4j9nYh514ifn4WpWgF3wMQt33tONDCXAPy7A6k//D7wVfiMf57FUVyo4WiQ9gD860VT4ZH/EISyqCT2EvNuFSW3jcf4hFWJyv6DDG4SmmYUaR5F0/8LW4ivc4mZ0zJ61YUAAP40i/3RJx8fTjCLXd53R2TRS88tS1Yiconr4tOyOsupiv6DngdfCpGMJSTOgi/cSTTPC8rfIAncDuBrvnBnZUrYIq5VGw611dcK0IfpbD1Mk1OgdrOebhc9p2uVtMGT4ql1JYERO4EW96qB9biDhbtOV2fMLcXGy/Q8rwgxhG+Bi9HYqanPPFHGzFlULchk5AGR4rNNbqmrSmCTjuTMLrLHp01quy8kj0A2HN+PzfFB73bmNF/u6U4YPpVxQvitr2nMMubCksjVX9l+dRnJX4kkVtC4+umZ79H1+rRp+5tkn+3K+b0L7BEfgL4GFSGFiEAecAAAAASUVORK5CYII="/>
                     </span>,create moments tonight with 
                     {% if gender == 'male' %}
@@ -370,13 +307,13 @@
                       People
                     {% endif %}
                     that are looking for fun moments on campus, see their profiles
-                     <a href="profiles/" class="link" id="here-text">here
+                     <a href="accounts/login/" class="link" id="here-text">here
                       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
 
 
                      </a>.
                   {% else %}
-                    Sign in <a href="auth/" class="link" id="here-text">here
+                    Sign in <a href="accounts/login/" class="link" id="here-text">here
                       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
                     </a> to get started.
                   {% endif %}
@@ -390,11 +327,11 @@
                 <img src="{% static 'assets/img/d2.png' %}" />
                 <h5><a href="#">FIND LOVE</a></h5>
                 <p>
-                  {% if is_authenticated %}
-                  {% if interests != 'love' %}
+                  {% is_authenticated  %}
+                  {% if request.user.interests != 'love' %}
                     You can always change your <a class="link" onclick="openPopup()" href="#" >interests</a> anytime to find a match for yourself with people that are looking for true love.
                   {% else %}
-                    Hey {{username}}, there are 1000+ lonely
+                    Hey {{ request.user.name }}, there are 1000+ lonely
                     {% if is_authenticated %}
                     {% if gender == 'male' %}
                       Girls
@@ -410,7 +347,7 @@
                     </a>.
                   {% endif %}
                 {% else %}
-                Looking for love? <a href="auth/" class="link">login</a> to get started and start browsing through profiles.
+                Looking for love? <a href="accounts/login/" class="link">login</a> to get started and start browsing through profiles.
                 {% endif %}
                 </p>
               </div>
@@ -423,12 +360,12 @@
                 <h5><a href="#">NO SRINGS</a></h5>
                 <p>
                   
-                  {% if is_authenticated %}
-                  {% if interests != 'nostrings' %}
+                  {% is_authenticated  %}
+                  {% if request.user.interests != 'nostrings' %}
                     For fun moments, no strings attached or paid hookups,you can change your <a class="link" onclick="openPopup()" href="#">interests</a> to get started.
                   {% else %}
                     200+
-                    {% if is_authenticated %}
+                    {% is_authenticated  %}
                     {% if gender == 'male' %}
                       Girls
                     {% elif gender == 'female'%}
@@ -789,7 +726,7 @@
                   </p>
                 </li>
               </ul>
-              {% if is_authenticated %}
+              {% is_authenticated  %}
               <a class="btn circle btn-theme angle effect btn-md" href="profiles/">
                   Profiles
             </a>
@@ -1244,3 +1181,4 @@
     </script>
   </body>
 </html>
+{% endblock %}
