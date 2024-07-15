@@ -1,0 +1,1246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Enjoy college moments and make memories. "
+    />
+
+    <!-- ========== Page Title ========== -->
+    <title>collegelink</title> 
+    <!-- ========== Favicon Icon ========== -->
+    <link
+  rel="shortcut icon"
+  href="{% static 'assets/img/favicon.png' %}"
+  type="image/x-icon"
+/>
+<!-- ========== Start Stylesheet ========== -->
+<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/flaticon-set.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/magnific-popup.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/animate.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/profile.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/mobile_phones_nav.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/call-actions.css' %}" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Preloader Start -->
+    <!-- Preloader Ends -->
+    
+    <!-- Start Header Top 
+    ============================================= -->
+  
+    <!-- End Header Top -->
+
+    <!-- Header 
+    ============================================= -->
+    <header id="home">
+      <!-- Start Navigation -->
+  
+    </head>
+    <body>
+        <!-- START BIG SCREEN NAV -->
+        <header>
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-sticky">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                  <img src="{% static 'assets/img/logo.png' %}" class="logo" alt="Logo">
+              </a>
+              <button id="navbar-toggler-small" class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span id="navbar-toggler-small" class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#blog">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}">
+                      {% if is_authenticated %}
+                        <a href="#" style="color: #ffffff;display: flex;margin-top: -4px;position: absolute;right: 1%;">
+                          <button id="profile-container" style="background-color: transparent;color: #e2e2e2;">
+                      <img style="width: 30px; height: 30px;border: 1px solid #686868; border-radius: 50%;" src="{{profile_pic_path}}" alt="">
+
+                            hello, {{ username }}!</button>
+                          </a>
+                        </a>
+                      {% else %}
+                       <a href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}"  id="login-button">Login</a> 
+                      {% endif %}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <div id="zephyr-menu" class="zephyr-menu d-md-none">
+            <div class="zephyr-menuu" id="zephyr-menu">
+              <ul class="celestial-nav">
+                <li>
+                  <a href="#home">Home</a>
+                </li>
+                <li>
+                  <a href="#blog">Blog</a>
+                </li>
+                <li>
+                  <a href="#contact">Contact Us</a>
+                </li>
+                <li id="opaline-btn">
+                  <a  href="login" style="background-color: transparent;">
+                    {% if is_authenticated %}
+                    <a href="#"   style="background-color: transparent;">
+                      <button class="profile-button" id="profile-containers">
+                       
+                        hello, <span >{{ username }}!</span>
+                      </button>
+                    </a>
+                  </a>
+                  {% else %}
+                  <a href="login/"  id="login-button-mobile">Login</a> 
+                    {% endif %}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        
+        <!-- END BIG SCREEN NAV -->
+
+        <!-- START SMALL SCREEN NAV -->
+        
+        <!-- END SMALL SCREEN NAV -->
+        
+        
+        <body>
+            <!-- PROFILE UPDATING & DATA SECTION -->
+      <div id="profile-popup" class="popup-container">
+        <div class="popup-content" id="">
+            <span id="close-button" class="close-button" onclick="closePopup()">&times;</span>
+            <form id="profile-form">
+    
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="first_name">User Name</label>
+            <input type="text" class="form-control" id="username" name="first_name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="phone-number" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea class="form-control" id="bio-info" name="bio"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="interests">Interests</label>
+            <select class="form-control" id="user-interests" name="interests">
+              <option value="love">Love</option>
+              <option value="nostrings">No Strings Attached</option>
+              <option value="hookups">Hookups</option>
+              <option value="friendship">Friendship</option>
+            </select>
+          </div>
+          
+          <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <!-- END PROFILE UPDATE & DATA -->
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Banner 
+    ============================================= -->
+    <div class="banner-area inc-content center-responsive text-large" >
+      <div
+        id="bootcarousel"
+        class="carousel slide text-light carousel-fade animate_text"
+        data-ride="carousel"
+      >
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner carousel-zoom" id="banner-contents">
+          <div class="carousel-item active">
+            <div
+              class="slider-thumb bg-cover"
+              style="background-image: url({% static 'assets/img/love2.jpg' %})"
+            ></div>
+            <div class="box-table shadow dark">
+              <div class="box-cell">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8 offset-lg-4">
+                      <div class="content">
+                        <h2 data-animation="animated slideInDown">
+                          Are You Waiting For Dating ?
+                        </h2>
+                        <p data-animation="animated slideInRight">
+                          {% if gender == 'male' %}
+                            Choose Your Girl
+                          {% elif gender == 'female' %}
+                            Choose Your Man
+                          {% else %}
+                            Login to Explore our Services.
+                          {% endif %}
+                          {% if gender == 'male' %}
+                            From 139+ Lonely Girls
+                          {% elif gender == 'female' %}
+                            From 813+ Lonely Man
+                          {% else %}
+                            Choose from 1000+ Lonely People
+                          {% endif %}
+                        </p>
+                        <div class="slider-button">
+                          {% if is_authenticated %}
+                          <a
+                            data-animation="animated slideInUp"
+                            class="cta-button btn btn-theme effect btn-md angle"
+                            href="#"
+                            >
+                            View Profiles
+                            
+                            </a
+                          >
+                          {% else %}
+                            <a
+                            data-animation="animated slideInUp"
+                            class="cta-button btn btn-theme effect btn-md angle"
+                             href="auth/">Login</a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div
+              class="slider-thumb bg-cover"
+              style="background-image: url({% static 'assets/img/love3.jpg' %})"
+            ></div>
+            <div class="box-table shadow dark">
+              <div class="box-cell">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8 offset-lg-4">
+                      <div class="content">
+                        <h2 data-animation="animated slideInRight">
+                          Meet Big And Beautiful Love Here!
+                        </h2>
+                        <p id="welcome-content" data-animation="animated slideInLeft">
+                          Wound use found hoped. Of distrusts immediate
+                          enjoyment curiosity do. Marianne numerous saw thoughts
+                          the humoured.
+                        </p>
+                        <div class="slider-button">
+                          <a
+                            data-animation="animated slideInUp"
+                            class="btn btn-theme effect btn-md angle"
+                            href="#"
+                            >
+                            {% if is_authenticated %}
+                              {% if gender == 'male' %}
+                                Browse Girls
+                              {% elif gender == 'female'%}
+                                Browse Men
+                              {% else %}
+                                Your gender?
+                              {% endif %}
+                            {% else %}
+                            Get started
+                            {% endif %}
+                            </a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div
+              class="slider-thumb bg-cover"
+              style="background-image: url({% static 'assets/img/couples.avif' %})"
+            ></div>
+            <div class="box-table shadow dark">
+              <div class="box-cell">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-8 offset-lg-4">
+                      <div class="content">
+                        <h2 data-animation="animated slideInRight">
+                          Find your soulmate here!
+                        </h2>
+                        <p id="welcome-content" data-animation="animated slideInLeft">
+                          Get started with your love journey, find your soulmate
+                        </p>
+                        <div class="slider-button">
+                          <a
+                            data-animation="animated slideInUp"
+                            class="btn btn-theme effect btn-md angle"
+                            href="#"
+                            >
+                            {% if is_authenticated %}
+                              {% if gender == 'male' %}
+                                Browse Girls
+                              {% elif gender == 'female'%}
+                                Browse Men
+                              {% else %}
+                                Your gender?
+                              {% endif %}
+                            {% else %}
+                            Get started
+                            {% endif %}
+                            </a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Wrapper for slides -->
+        <!-- Left and right controls -->
+        <a
+          class="left carousel-control light"
+          href="#bootcarousel"
+          data-slide="prev"
+        >
+          <i class="fa fa-angle-left"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="right carousel-control light"
+          href="#bootcarousel"
+          data-slide="next"
+        >
+          <i class="fa fa-angle-right"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <!-- End Banner -->
+
+    <div id="actions-menu" class="features-area multi-option default-padding-bottom">
+      <div class="container">
+        <div class="features-items text-center">
+          <div class="row">
+            <!-- Single Item-->
+            <div class="single-item feature col-lg-4">
+              <div class="item">
+                <img src="{% static 'assets/img/d1.png' %}" alt="dating" />
+                <h5><a href="#">CAMPUS VIBES</a></h5>
+                <p>
+                  {% if is_authenticated%}
+                    Hey <span style="color: rgba(0, 128, 0, 0.538);font-weight: bolder;" onclick="openPopup()">{{ username }} 
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdJJREFUSEu11c2rTWEUx/HPRSIRcScSRV6Sl3InSIpkoAyIjEgykZGMxIC6MTGgFAP+AUUmMhIRSaGIGZJQXlLKawb20jo6tu3svU/dp06dwbO+6/f81sseMIJnYATZmsAn4hjWYybe4i7240UvcXXwKXiAWRWQb1iHW/9LUAe/gM24iUO4j9nYh514ifn4WpWgF3wMQt33tONDCXAPy7A6k//D7wVfiMf57FUVyo4WiQ9gD860VT4ZH/EISyqCT2EvNuFSW3jcf4hFWJyv6DDG4SmmYUaR5F0/8LW4ivc4mZ0zJ61YUAAP40i/3RJx8fTjCLXd53R2TRS88tS1Yiconr4tOyOsupiv6DngdfCpGMJSTOgi/cSTTPC8rfIAncDuBrvnBnZUrYIq5VGw611dcK0IfpbD1Mk1OgdrOebhc9p2uVtMGT4ql1JYERO4EW96qB9biDhbtOV2fMLcXGy/Q8rwgxhG+Bi9HYqanPPFHGzFlULchk5AGR4rNNbqmrSmCTjuTMLrLHp01quy8kj0A2HN+PzfFB73bmNF/u6U4YPpVxQvitr2nMMubCksjVX9l+dRnJX4kkVtC4+umZ79H1+rRp+5tkn+3K+b0L7BEfgL4GFSGFiEAecAAAAASUVORK5CYII="/>
+                    </span>,create moments tonight with 
+                    {% if gender == 'male' %}
+                      Girls
+                    {% elif gender == 'female'%}
+                      Men
+                    {% else %}
+                      People
+                    {% endif %}
+                    that are looking for fun moments on campus, see their profiles
+                     <a href="profiles/" class="link" id="here-text">here
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
+
+
+                     </a>.
+                  {% else %}
+                    Sign in <a href="auth/" class="link" id="here-text">here
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
+                    </a> to get started.
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+            <!-- End Single Item-->
+
+            <div class="single-item feature col-lg-4" alt="datin">
+              <div class="item">
+                <img src="{% static 'assets/img/d2.png' %}" />
+                <h5><a href="#">FIND LOVE</a></h5>
+                <p>
+                  {% if is_authenticated %}
+                  {% if interests != 'love' %}
+                    You can always change your <a class="link" onclick="openPopup()" href="#" >interests</a> anytime to find a match for yourself with people that are looking for true love.
+                  {% else %}
+                    Hey {{username}}, there are 1000+ lonely
+                    {% if is_authenticated %}
+                    {% if gender == 'male' %}
+                      Girls
+                    {% elif gender == 'female'%}
+                      Men
+                    {% else %}
+                      People
+                    {% endif %}
+                  {% endif %}
+                    who are looking for serious partners, See their profiles <a href="profiles/" class="link" id="here-text">here
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
+
+                    </a>.
+                  {% endif %}
+                {% else %}
+                Looking for love? <a href="auth/" class="link">login</a> to get started and start browsing through profiles.
+                {% endif %}
+                </p>
+              </div>
+            </div>
+            <!-- End Single Item-->
+
+            <div class="single-item feature col-lg-4" alt="dating">
+              <div class="item">
+                <img src="{% static 'assets/img/d3.png' %}" />
+                <h5><a href="#">NO SRINGS</a></h5>
+                <p>
+                  
+                  {% if is_authenticated %}
+                  {% if interests != 'nostrings' %}
+                    For fun moments, no strings attached or paid hookups,you can change your <a class="link" onclick="openPopup()" href="#">interests</a> to get started.
+                  {% else %}
+                    200+
+                    {% if is_authenticated %}
+                    {% if gender == 'male' %}
+                      Girls
+                    {% elif gender == 'female'%}
+                      Men
+                    {% else %}
+                      People
+                    {% endif %}
+                  {% endif %}
+                    are up for hookups and one night stands, Find yours <a href="profiles/" class="link" id="here-text">here
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
+                    </a>.
+                  {% endif %}
+                {% else %}
+                Are you looking for fun moments? <a href="auth/" class="link">login</a> to see available profiles.
+                {% endif %}
+
+                </p>
+              </div>
+            </div>
+            <!-- End Single Item-->
+
+            <!-- Single Item-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Our Features -->
+
+    <!-- Start Our About
+    ============================================= -->
+    <div class="about-area default-padding-bottom" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 info-content">
+            <h2>A Brief Story about this Platform.</h2>
+           
+            <p>Tired Of Being Alone</p>
+
+            <p>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAZxJREFUSEu11D9IV2EUxvGPkiFFUJCgNBQkGLQ0RZNlGEJTDUHU5KSDQUOCQ1AEDYFj0uDi4hAqJtTYXxpqica21oawgkACo94Dr3Ap7+/+EQ9c7oXL+Z7znuc5b5ddjK5dZNsJ/AieYR2X8ePfRtvCj+I14h3xAWfxs1igDfx4BkfnK+jDMN7hQrFAU/gg3mAgg69iL56mgiO5wDn8ihM0gZ9IR3+JfizhGjbzGC5hNX9HkVdN4EN4i8MZcgW/MyxGEcL2pP8PcWNr7nU6P5k7qQLPYrqJoKeSWC9wqKLje7jTxIohXljsAB7jemEUY1nEPWnut9NI7m+3jJ3GcrfQTXg4XBJxEWsI8AwelG15J/jzBDyfEzeSoKPYXxAvhAsBS6MMHl19z7Ct5CgQjoh/U2l55qrupTL4abzfJvkPJjBfBe7k80eYLAA+52Kx7st1wGXw2LzFDAix4vlWF9jJ593p4rmFfWmuX6sEqypYZ0OrGLXdcjC55GZrGk/wsexuOYYQr22MY6EM3oszbcn4lFz2pQy+A+7/qX8B/C1FGDPN2CwAAAAASUVORK5CYII="/>
+              This platform makes college life enjoyable by connecting you with what you are looking for, love, fun or just a friend, we got you covered,
+              we have a wide range of profiles to choose from and we'll recommend the best match for you according to your preferences.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-dark border btn-md"
+              data-animation="animated slideInUp"
+              >Read More</a
+            >
+          </div>
+          <div class="col-lg-6 thumb-box">
+            <div class="thumb">
+              <img src="{% static 'assets/img/couples.jpg' %}" alt="Thumb" />
+              <div
+                class="video bg-cover"
+                style="background-image: url({% static 'assets/img/couples1.jpg' %})"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Our About -->
+
+    <div
+      class="services-area carousel-shadow with-thumb bg-gray default-padding"
+      id="profile"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="site-heading text-center">
+              <h4>Discover what people say about us.</h4>
+              <h2>Reviews & Comments</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div
+              class="services-items services-carousel owl-carousel owl-theme"
+            >
+              <!-- Single Item -->
+              <div class="item">
+                <!-- <div class="thumb">
+                  <img src="assets/img/s1.jpg" alt="Thumb" />
+                </div> -->
+                <div class="info">
+                  <h4>
+                    <a href="#">Francisco Pierce</a>
+                  </h4>
+                  <p>
+                    Direct enough off others say eldest may exeter she. Possible
+                    all ignorant supplied get settling marriage recurred.
+                  </p>
+                  <div class="button">
+                    <span>01</span>
+                    <a href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Single Item -->
+              <!-- Single Item -->
+              <div class="item">
+                <!-- <div class="thumb">
+                  <img src="assets/img/s2.jpg" alt="Thumb" />
+                </div> -->
+                <div class="info">
+                  <h4>
+                    <a href="#">Glen Bell</a>
+                  </h4>
+                  <p>
+                    Direct enough off others say eldest may exeter she. Possible
+                    all ignorant supplied get settling marriage recurred.
+                  </p>
+                  <div class="button text-right">
+                    <span>02</span>
+                    <a href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Single Item -->
+              <!-- Single Item -->
+              <div class="item">
+                <!-- <div class="thumb">
+                  <img src="assets/img/s3.jpg" alt="Thumb" />
+                </div> -->
+                <div class="info">
+                  <h4>
+                    <a href="#">Bill Nelson</a>
+                  </h4>
+                  <p>
+                    Direct enough off others say eldest may exeter she. Possible
+                    all ignorant supplied get settling marriage recurred.
+                  </p>
+                  <div class="button text-right">
+                    <span>03</span>
+                    <a href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Single Item -->
+              <!-- Single Item -->
+              <div class="item">
+                <!-- <div class="thumb">
+                  <img src="assets/img/s4.jpg" alt="Thumb" />
+                </div> -->
+                <div class="info">
+                  <h4>
+                    <a href="#">Nelle Townsend</a>
+                  </h4>
+                  <p>
+                    Direct enough off others say eldest may exeter she. Possible
+                    all ignorant supplied get settling marriage recurred.
+                  </p>
+                  <div class="button text-right">
+                    <span>04</span>
+                    <a href="#">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Single Item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Services -->
+
+    <div class="portfolio-area overflow-hidden default-padding" id="work">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="site-heading text-center">
+              <h4>See who is Trending.</h4>
+              <h2>Top 5 Hotties!</h2>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-items-area">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="gallery-content">
+                <!-- End Mixitup Nav-->
+
+                <div class="masonary">
+                  <div
+                    id="portfolio-grid"
+                    class="gallery-items projects-items colums-3"
+                  >
+                    <!-- Single Item -->
+                    <div class="pf-item development capital">
+                      <div class="item">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <div class="overlay">
+                            <a
+                              href="{% static 'assets/img/1.png' %}"
+                              class="item popup-gallery"
+                              ><i class="fa fa-plus"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <h5><a href="#">QUINNEL & JONET</a></h5>
+                          <span>QUINNEL & JONET </span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="pf-item width-xl consulting branding">
+                      <div class="item">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <div class="overlay">
+                            <a
+                              href="{% static 'assets/img/1.png' %}"
+                              class="item popup-gallery"
+                              ><i class="fa fa-plus"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <h5><a href="#">ADAM & EVE</a></h5>
+                          <span> ADAM & EVE </span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="pf-item consulting finance">
+                      <div class="item">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <div class="overlay">
+                            <a
+                              href="{% static 'assets/img/1.png' %}"
+                              class="item popup-gallery"
+                              ><i class="fa fa-plus"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <h5><a href="#">BELLA & EDWARD</a></h5>
+                          <span> BELLA & EDWARD </span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="pf-item finance">
+                      <div class="item">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <div class="overlay">
+                            <a
+                              href="{% static 'assets/img/1.png' %}"
+                              class="item popup-gallery"
+                              ><i class="fa fa-plus"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <h5><a href="#">DEMI & HEAVEN</a></h5>
+                          <span>DEMI & HEAVEN</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="pf-item capital development">
+                      <div class="item">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <div class="overlay">
+                            <a
+                              href="{% static 'assets/img/1.png' %}"
+                              class="item popup-gallery"
+                              ><i class="fa fa-plus"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <h5><a href="#">DAVID & BATHSHEBA</a></h5>
+                          <span> DAVID & BATHSHEBA </span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="pf-item finance">
+                      <div class="item">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <div class="overlay">
+                            <a
+                              href="{% static 'assets/img/1.png' %}"
+                              class="item popup-gallery"
+                              ><i class="fa fa-plus"></i
+                            ></a>
+                          </div>
+                        </div>
+                        <div class="info">
+                          <h5><a href="#">EROS & PSYCHI</a></h5>
+                          <span> EROS & PSYCHI</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Item -->
+                    
+                    <!-- End Single Item -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Portfolio -->
+    <!-- Start Projects Area 
+  
+
+  
+    ============================================= -->
+    <div class="why-us-area default-padding bg-gray">
+      <!-- Fixed Thumb -->
+      <div
+      class="fixed-thumb bg-cover"
+      > <img src="{% static 'assets/img/love2.png' %}" alt=""></div>
+      <!-- End Fixed Thumb -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-6 info">
+            <div class="content">
+              <h5>Are You Waiting For A Match?</h5>
+              <h2>Explore available services.</h2>
+              <ul>
+                <li>
+                  <h5>Serious Love</h5>
+                  <p>
+                    
+                    Find serious love, get married and start a family.
+                  </p>
+                </li>
+                <li>
+                  <h5>No strings</h5>
+                  <p>
+                    Offer good moments and get favors in return, no strings attached, just fun.
+                  </p>
+                </li>
+                <li>
+                  <h5>Campus moments</h5>
+                  <p>
+                    Enjoy college moments and make memories.
+                  </p>
+                </li>
+              </ul>
+              {% if is_authenticated %}
+              <a class="btn circle btn-theme angle effect btn-md" href="profiles/">
+                  Profiles
+            </a>
+            {% else %}
+              <a class="cta-button btn circle btn-theme angle effect btn-md" href="auth/">Login</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Why Chose Us -->
+
+    <!-- Start Achivement 
+    ============================================= -->
+    <div
+      class="achivement-area full text-white default-padding"
+      style="background-image: url({% static 'assets/img/logo.pngs' %});background-color: rgba(24, 24, 24, 0.274);"
+      >
+      <div class="container">
+      
+        <!-- Fixed Thumb -->
+
+        <!-- End Fixed Thumb -->
+        <div class="row">
+          <div class="col-lg-4 single-item">
+            <div class="fun-fact">
+              <div class="counter">
+                <div class="count">
+                  <div class="timer" data-to="28" data-speed="5000"></div>
+                </div>
+              </div>
+              <div class="info">
+                <h5>Total Members</h5>
+                <p>1600</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 single-item">
+            <div class="fun-fact">
+              <div class="counter">
+                <div class="count">
+                  <div class="timer plus" data-to="27" data-speed="5000"></div>
+                </div>
+              </div>
+              <div class="info">
+                <h5>750</h5>
+                <p>Active Members</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 single-item">
+            <div class="fun-fact">
+              <div class="counter">
+                <div class="count">
+                  <div class="timer" data-to="54" data-speed="5000"></div>
+                </div>
+              </div>
+              <div class="info">
+                <h5>
+                  {% if is_authenticated %}
+                  {% if gender == 'male' %}
+                      {{girls_count}}
+                    {% elif gender == 'female'%}
+                    {{ men_count }}
+                    {% else %}
+                    {% endif %}
+                  {% else %}
+                  {{ people_count }}
+                    People
+                  {% endif %}
+                </h5>
+                <p>
+                  
+                    {% if gender == 'male' %}
+                      Girls
+                    {% elif gender == 'female'%}
+                      Men
+                    {% else %}
+                      People
+                    {% endif %}
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <!-- End FAQ -->
+
+    <div class="contact-area default-padding" id="contact">
+      <!-- Fixed BG -->
+      <div class="fixed-bg">
+        <img style="margin-top: 20%;" src="{% static 'assets/img/love-contact.png' %}" alt="Thumb" />
+      </div>
+      <!-- End Fixed BG -->
+      <div class="container">
+        <div class="contact-items">
+          <div class="row align-center">
+            <div class="col-lg-4 right-item">
+              <div class="info-items text-light">
+                <!-- Single Item -->
+                <div class="item">
+                  <div class="icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                  </div>
+                  <div class="info">
+                    <h5>Location</h5>
+
+                    <p>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAihJREFUSEu11UvIjVEUBuDnJyJRKEUuRaRIcslAFEmUKJcwYCAkAwrFQFEGcokYyG0khUJMUJIRJiSFgdwvZUS5lFuxV+1T33/+71ycv3/X6fR9a+93vXutd71fmy5cbV2IrVnwOTiAsXiPYzjciFgz4MtwgQ5E9mN7vQSNwHvhM+J/E85hOs6gH6bgQa0EjcAn4iHuZtAKTpRoW0q8GUdbBR+Gt/k3Bj8z0FUsxCqcbRU8zsW1J2X20cTFWJmYf8OIVK5PnQEP4Jvp+gMKIL+xOqnnfGcaWjkbzduLjbiTmb9rVYrdsSSzPZ5BVmS1nMCG/G4WJuA0vlcnK1PLXJzM9XyJUXXAT6WhWpvrvyvJ81AxQTX4HuzMG2JwjuBeHfBoaMgxbtIb1/KNf8SZIvhWHMyyC0VUD0dZWSpEB+cpnpGbHGpqB/4MozEV90uaNQ/XE8N92FES74/nuU8DQ6IV5j3wK2s2AmWrGx5jPt7U2HMlTfQizMbtYlk+pEYOwXg8qXF4eC5bWThq/jo55qDkPSPxqggeXhGeEZa6Djca6bgQDzmGwqYlchcTuXDSdjWPROF6ywv+sTuX4k9JotgffrMeW3L8EWam5y/V4PEcdY2Ghb32zAcC+Cmi4S/SwAzNH41x2Ypj219cSiVbg68VIrUst29SzILEeiniKxTjX71Cy7eyti8nrX9sZkKr98RtJqd+9CkEwnpjDkJhNVejj8V/9LTj1n/q8WUYYR0+0QAAAABJRU5ErkJggg=="/>
+                      22 Baker Street, London, United Kingdom, W1U 3BW</p>
+                  </div>
+                </div>
+                <!-- End Single Item -->
+                <!-- Single Item -->
+                <div class="item">
+                  <div class="icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="info">
+                    <h5>Make a Call</h5>
+                    <p>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAArVJREFUSEu11UvIVmUUBeBH6CYVdL9gQVIQTSpqIEWWiSBRShdJKqpJg6ISpHRQg4QGBaVmCAUhQRhpaNnFCgdFV9MyKiQjJKiRQplKmhVd3hX7+zl+//mFP/Adfed8715777XX2meCw3gmHEZsY4Gfip/wT0/yu3E/PsVHeBW7+4rsA78EG7AJN+HAUODNeBJn1/udmIeXhxMMg1+J9S34uLr4Lq7Dbz2VnYQb8RSOxTrMwV+Du13w6XgTE/EcrsZ5+AQz8WsFnVHJf8CfOAdrcCkewmN94D9WqytwF05vCd7H+fis8TsDexHOn6luHsYyJOG26uDi1sHWJBhUfnRxuwundAaZoK+RAS9u1T+IG1oRKeDEqnBQ7e14oSV6Fvd0wfP7Z4THo6rdvLu3JVteINfirQ73d+L5upsuo5j9+K7xn+oPkuJXuLA4DJ/nYjv+bgG3YnXPUF+pTq7CB/iyMCKI/d2BZojhOkAvNRWc0NqLzDL90zoD7eZI+3PxON7Bo5hatGzrgs/C623qb2B2IawtuS1sw3pivG7ugofrX1oVxzQKLijuLsKWouYKbO4kOBm3YFW5eVTuYRPFeQ/gtcbf9XV7UVPPI03Df2BBDThe+LhZP8m/LSqyLg46w+DH4/uSY/iP5I5sKnq69J3g/L+jrYjLO0gRQ4a6p4vet1sG3Eclsf7bFZCdsqS5d1I9x3TR9os4q83pi3J1jPbfGWsrDqhIgvlV+SAmFWdVxDBJEPt/WAk2VoLfDwWepHFkgHOimvuKjj7RRH7Rec60WhtjVj4AiAuj//C+D0sbt+/VLo8bc86symO6EesfqvJudZPbQ2i6o/MydH3TZvI5LqvltrLujHxgxvOZy3aMG69pQ54yNK9o/bbyw0gN4wHvdnNE0ZGFFc1noKPO/wXvwxr17l/lN4gYRBbqBgAAAABJRU5ErkJggg=="/>
+                      +44-20-7328-4499 
+                    </p>
+                  </div>
+                </div>
+                <!-- End Single Item -->
+                <!-- Single Item -->
+                <div class="item">
+                  <div class="icon">
+                    <i class="fas fa-envelope-open"></i>
+                  </div>
+                  <div class="info">
+                    <h5>Send a Mail</h5>
+                    <p>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAYFJREFUSEvd1b9LVnEUx/GXZgohGEEUCFmD4BJBkYNLc9IvJwkhxaHNlmppiKDASXB3sCFqsnJSqD+gIWhoddDISfAnSjpU3xPfCw9PPvL0XGzwu13u+b7POZ/zuec2OcTTdIhsRwM+kiR6hq4SUm1iCo+CUcjSijUcw6cS8B6cwVV8LuAnM/wHbuFDAwnO4SO6MYD31fBg/szyvMCvOpNcxxt05Ph94XtoQTPmcRfrBySIuOd4kmN2cKK68sgYkEUMRUs4jW9Juxv4uk+CU3iLawkeRT3ElcQIY9zBbCFLJfwCzmIGfdjFWHZBkaM3gzuxjJv4gpcYrqX5Ugo4nwnhnHE8zs+vUyejuI8JHM8DHMRqjqkbXlR5G6/QjpUsV7x7muZTPfR/hgcopJpNUl3MVUa1Ybvq0xA8IG0J/CBb7nsNBzUMr8fy/x8ext/GBibrKbFGTPj7EvoxV7nP32Xzl2D/ubqAy+mj2qqEh6/vlVy50fl0sTKOxp+orNZ/3f8NU29bGKXZUS4AAAAASUVORK5CYII="/>
+                      info@collegelink.co.zw <br />
+                    </p>
+                  </div>
+                </div>
+                <!-- End Single Item -->
+              </div>
+            </div>
+
+            <div class="col-lg-8 left-item">
+              <div class="content">
+                <h2>Let's Privately Talk About Needs</h2>
+                <form
+                  action="{% static 'assets/mail/contact.php' %}"
+                  method="POST"
+                  class="contact-form"
+                >
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <input
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          placeholder="Name"
+                          type="text"
+                        />
+                        <span class="alert-error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <input
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          placeholder="Email*"
+                          type="email"
+                        />
+                        <span class="alert-error"></span>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <input
+                          class="form-control"
+                          id="phone"
+                          name="phone"
+                          placeholder="Phone"
+                          type="text"
+                        />
+                        <span class="alert-error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group comments">
+                        <textarea
+                          class="form-control"
+                          id="comments"
+                          name="comments"
+                          placeholder="Tell Us About Project *"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <button type="submit" name="submit" id="submit">
+                        Send Message <i class="fa fa-paper-plane"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Alert Message -->
+                  <div class="col-lg-12 alert-notification">
+                    <div id="message" class="alert-msg"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="faq-area default-padding">
+      <div class="container">
+        <div class="faqs">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h4
+                      class="mb-0"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <span>01</span> What is the Decent Work Check Survey?
+                    </h4>
+                  </div>
+
+                  <div
+                    id="collapseOne"
+                    class="collapse"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordionExample"
+                  >
+                    <div class="card-body">
+                      <p>
+                        General windows effects not are drawing man garrets.
+                        Common indeed garden you his ladies out yet. Preference
+                        imprudence contrasted to remarkably in on. Taken now you
+                        him trees tears any. Her object giving end sister except
+                        oppose.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h4
+                      class="mb-0 collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      <span>02</span> What are the Factory Pages?
+                    </h4>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordionExample"
+                  >
+                    <div class="card-body">
+                      <p>
+                        General windows effects not are drawing man garrets.
+                        Common indeed garden you his ladies out yet. Preference
+                        imprudence contrasted to remarkably in on. Taken now you
+                        him trees tears any. Her object giving end sister except
+                        oppose.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h4
+                      class="mb-0 collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      <span>03</span> Can I participate in the Survey?
+                    </h4>
+                  </div>
+                  <div
+                    id="collapseThree"
+                    class="collapse"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordionExample"
+                  >
+                    <div class="card-body">
+                      <p>
+                        General windows effects not are drawing man garrets.
+                        Common indeed garden you his ladies out yet. Preference
+                        imprudence contrasted to remarkably in on. Taken now you
+                        him trees tears any. Her object giving end sister except
+                        oppose.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <img src="{% static 'assets/img/illustration/1.png' %}" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Contact -->
+
+    <!-- Start Footer 
+    ============================================= -->
+  
+    <footer class="bg-dark text-light">
+      
+      <!-- Footer Top -->
+
+      <!-- End Footer Top -->
+
+      <div class="container">
+        <div class="f-items default-padding">
+          <div class="row">
+            <!-- Single Item -->
+            <div class="col-lg-4 col-md-6 single-item">
+              <div class="f-item contact">
+                <h4 class="widget-title">Contact Us</h4>
+                <p>1234 Spun Rd</p>
+                <ul>
+                  <li>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAihJREFUSEu11UvIjVEUBuDnJyJRKEUuRaRIcslAFEmUKJcwYCAkAwrFQFEGcokYyG0khUJMUJIRJiSFgdwvZUS5lFuxV+1T33/+71ycv3/X6fR9a+93vXutd71fmy5cbV2IrVnwOTiAsXiPYzjciFgz4MtwgQ5E9mN7vQSNwHvhM+J/E85hOs6gH6bgQa0EjcAn4iHuZtAKTpRoW0q8GUdbBR+Gt/k3Bj8z0FUsxCqcbRU8zsW1J2X20cTFWJmYf8OIVK5PnQEP4Jvp+gMKIL+xOqnnfGcaWjkbzduLjbiTmb9rVYrdsSSzPZ5BVmS1nMCG/G4WJuA0vlcnK1PLXJzM9XyJUXXAT6WhWpvrvyvJ81AxQTX4HuzMG2JwjuBeHfBoaMgxbtIb1/KNf8SZIvhWHMyyC0VUD0dZWSpEB+cpnpGbHGpqB/4MozEV90uaNQ/XE8N92FES74/nuU8DQ6IV5j3wK2s2AmWrGx5jPt7U2HMlTfQizMbtYlk+pEYOwXg8qXF4eC5bWThq/jo55qDkPSPxqggeXhGeEZa6Djca6bgQDzmGwqYlchcTuXDSdjWPROF6ywv+sTuX4k9JotgffrMeW3L8EWam5y/V4PEcdY2Ghb32zAcC+Cmi4S/SwAzNH41x2Ypj219cSiVbg68VIrUst29SzILEeiniKxTjX71Cy7eyti8nrX9sZkKr98RtJqd+9CkEwnpjDkJhNVejj8V/9LTj1n/q8WUYYR0+0QAAAABJRU5ErkJggg=="/>
+
+                    Harare, 263271772921
+                  </li>
+                  <li>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAYFJREFUSEvd1b9LVnEUx/GXZgohGEEUCFmD4BJBkYNLc9IvJwkhxaHNlmppiKDASXB3sCFqsnJSqD+gIWhoddDISfAnSjpU3xPfCw9PPvL0XGzwu13u+b7POZ/zuec2OcTTdIhsRwM+kiR6hq4SUm1iCo+CUcjSijUcw6cS8B6cwVV8LuAnM/wHbuFDAwnO4SO6MYD31fBg/szyvMCvOpNcxxt05Ph94XtoQTPmcRfrBySIuOd4kmN2cKK68sgYkEUMRUs4jW9Juxv4uk+CU3iLawkeRT3ElcQIY9zBbCFLJfwCzmIGfdjFWHZBkaM3gzuxjJv4gpcYrqX5Ugo4nwnhnHE8zs+vUyejuI8JHM8DHMRqjqkbXlR5G6/QjpUsV7x7muZTPfR/hgcopJpNUl3MVUa1Ybvq0xA8IG0J/CBb7nsNBzUMr8fy/x8ext/GBibrKbFGTPj7EvoxV7nP32Xzl2D/ubqAy+mj2qqEh6/vlVy50fl0sTKOxp+orNZ/3f8NU29bGKXZUS4AAAAASUVORK5CYII="/>
+
+                    love@collegelinkco.zw
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+            <div class="col-lg-2 col-md-6 single-item">
+              <div class="f-item link">
+                <h4 class="widget-title">Services</h4>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">testmonials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+            <div class="col-lg-2 col-md-6 single-item">
+              <div class="f-item link">
+                <h4 class="widget-title">Useful Links</h4>
+                <ul>
+                  <li>
+                    <a href="#">Terms of user</a>
+                  <li>
+                    <a href="#">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+              <!-- <img src="{% static 'assets/img/couples1.jpg' %}" alt=""> -->
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+    
+            <!-- End Single Item -->
+          </div>
+        </div>
+      </div>
+      <!-- Fixed Shape -->
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <p>
+                collegelink&copy;2024. All Rights Reserved.
+                <a href="#"></a>
+              </p>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      
+      <!-- Start Footer Bottom -->
+
+      <div class="fixed-shape">
+        <img src="{% static 'assets/img/shape/3.svg' %}" alt="Shape" />
+      </div>
+      <!-- End Fixed Shape -->
+    </footer>
+    <!-- End Footer -->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+
+    <script src="{% static 'assets/js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/equal-height.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.appear.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/modernizr.custom.13711.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/progress-bar.min.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/count-to.js' %}"></script>
+    <script src="{% static 'assets/js/bootsnav.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/user_profile.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <script>
+      $(".navbar-nav>li>a").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
+      });
+    </script>
+  </body>
+</html>

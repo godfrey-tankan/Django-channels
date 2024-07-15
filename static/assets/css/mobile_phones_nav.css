@@ -1,0 +1,47 @@
+.zephyr-menu {
+  position: fixed;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease;
+  padding: 20px;
+  left: -100%; /* Hidden by default */
+}
+
+.zephyr-menu.show {
+  left: 0%; /* Visible when .show class is added */
+  z-index: 1000;
+  color: #000;
+}
+
+#opaline-btn {
+  min-width: max-content;
+  flex-wrap: nowrap;
+  display: flex;
+  position: fixed;
+  bottom: 0%;
+}
+
+#opaline-btn a {
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.celestial-nav {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.celestial-nav li {
+  margin-bottom: 15px;
+}
+.celestial-nav li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
