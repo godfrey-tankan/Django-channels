@@ -4,7 +4,7 @@
     <div class="flex items-center justify-between">
       <a href="#" class="text-2xl font-bold text-white">All Profiles</a>
     </div>
-    <div class="profile-handles" style="background-color: red;">
+    <div class="profile-handles" style="border-bottom: 3 px solid #fff;">
       {% for user in users %}
       {% endfor %}
       <a href="{% url 'profile' user.username %}" class="flex items-center gap-2 p-4">
