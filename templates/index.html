@@ -295,8 +295,8 @@
                 <img src="{% static 'assets/img/d1.png' %}" alt="dating" />
                 <h5><a href="profiles/">CAMPUS VIBES</a></h5>
                 <p>
-                  {% is_authenticated %}
-                    Hey <span style="color: rgba(0, 128, 0, 0.538);font-weight: bolder;">{{ name }} 
+                  {% if is_authenticated %}
+                    Hey <span style="color: rgba(0, 128, 0, 0.538);font-weight: bolder;">{{ username }} 
                       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdJJREFUSEu11c2rTWEUx/HPRSIRcScSRV6Sl3InSIpkoAyIjEgykZGMxIC6MTGgFAP+AUUmMhIRSaGIGZJQXlLKawb20jo6tu3svU/dp06dwbO+6/f81sseMIJnYATZmsAn4hjWYybe4i7240UvcXXwKXiAWRWQb1iHW/9LUAe/gM24iUO4j9nYh514ifn4WpWgF3wMQt33tONDCXAPy7A6k//D7wVfiMf57FUVyo4WiQ9gD860VT4ZH/EISyqCT2EvNuFSW3jcf4hFWJyv6DDG4SmmYUaR5F0/8LW4ivc4mZ0zJ61YUAAP40i/3RJx8fTjCLXd53R2TRS88tS1Yiconr4tOyOsupiv6DngdfCpGMJSTOgi/cSTTPC8rfIAncDuBrvnBnZUrYIq5VGw611dcK0IfpbD1Mk1OgdrOebhc9p2uVtMGT4ql1JYERO4EW96qB9biDhbtOV2fMLcXGy/Q8rwgxhG+Bi9HYqanPPFHGzFlULchk5AGR4rNNbqmrSmCTjuTMLrLHp01quy8kj0A2HN+PzfFB73bmNF/u6U4YPpVxQvitr2nMMubCksjVX9l+dRnJX4kkVtC4+umZ79H1+rRp+5tkn+3K+b0L7BEfgL4GFSGFiEAecAAAAASUVORK5CYII="/>
                     </span>,create moments tonight with 
                     {% if gender == 'male' %}
@@ -327,7 +327,7 @@
                 <img src="{% static 'assets/img/d2.png' %}" />
                 <h5><a href="#">FIND LOVE</a></h5>
                 <p>
-                  {% is_authenticated  %}
+                  {% if is_authenticated  %}
                   {% if request.user.interests != 'love' %}
                     You can always change your <a class="link" onclick="openPopup()" href="#" >interests</a> anytime to find a match for yourself with people that are looking for true love.
                   {% else %}
@@ -360,12 +360,12 @@
                 <h5><a href="#">NO SRINGS</a></h5>
                 <p>
                   
-                  {% is_authenticated  %}
+                  {% if is_authenticated  %}
                   {% if request.user.interests != 'nostrings' %}
                     For fun moments, no strings attached or paid hookups,you can change your <a class="link" onclick="openPopup()" href="#">interests</a> to get started.
                   {% else %}
                     200+
-                    {% is_authenticated  %}
+                    {% if is_authenticated  %}
                     {% if gender == 'male' %}
                       Girls
                     {% elif gender == 'female'%}
@@ -726,7 +726,7 @@
                   </p>
                 </li>
               </ul>
-              {% is_authenticated  %}
+              {% if is_authenticated  %}
               <a class="btn circle btn-theme angle effect btn-md" href="profiles/">
                   Profiles
             </a>

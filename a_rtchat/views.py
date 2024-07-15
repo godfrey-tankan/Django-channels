@@ -3,6 +3,7 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.http import Http404
+from .content_processor import custom_context
 
 # Create your views here.
 @login_required
@@ -34,9 +35,7 @@ def chat_view(request,chatroom_name='public-chat'):
     return render(request, 'a_rtchat/chat.html', context)
 
 def home(request):
-    profile = get_object_or_404(User, id=request.user.id)
-
-    context = {'name':profile.username}
+    context =custom_context(request)
     return render(request, 'index.html', context)
 
 @login_required
