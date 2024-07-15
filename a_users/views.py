@@ -20,6 +20,7 @@ def profile_view(request, username=None):
 
 @login_required
 def profile_edit_view(request):
+    print('request path is ...',request.path)
     form = ProfileForm(instance=request.user.profile)  
     
     if request.method == 'POST':
@@ -35,6 +36,17 @@ def profile_edit_view(request):
       
     return render(request, 'a_users/profile_edit.html', { 'form':form, 'onboarding':onboarding })
 
+@login_required
+def profile_onboarding_view(request):
+    form = ProfileForm(instance=request.user.profile)
+    
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        
+    return render(request, 'a_users/profile_edit.html', {'form': form, 'onboarding': True})
 
 @login_required
 def profile_settings_view(request):

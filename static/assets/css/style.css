@@ -20,6 +20,11 @@
   background-color: #203985;
 }
 
+.image-styles{
+  padding: 300px;
+
+}
+
 * {
   padding: 0;
   margin: 0;

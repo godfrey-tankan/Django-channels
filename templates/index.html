@@ -1,4 +1,3 @@
-{% extends 'layouts/blank.html' %} {% block content %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -33,6 +32,7 @@
 <link href="{% static 'assets/css/profile.css' %}" rel="stylesheet" />
 <link href="{% static 'assets/css/mobile_phones_nav.css' %}" rel="stylesheet" />
 <link href="{% static 'assets/css/call-actions.css' %}" rel="stylesheet" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -50,78 +50,176 @@
 
     <!-- Header 
     ============================================= -->
-    <header id="home">
-      <!-- Start Navigation -->
-  
-    </head>
-    <body>
-        <!-- START BIG SCREEN NAV -->
-        <header>
-          
-        </header>
-        
-        <!-- END BIG SCREEN NAV -->
-
-        <!-- START SMALL SCREEN NAV -->
-        
-        <!-- END SMALL SCREEN NAV -->
-        
-        
-        <body>
-            <!-- PROFILE UPDATING & DATA SECTION -->
-      <div id="profile-popup" class="popup-container">
-        <div class="popup-content" id="">
-            <span id="close-button" class="close-button" onclick="closePopup()">&times;</span>
-            <form id="profile-form">
-    
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="first_name">User Name</label>
-            <input type="text" class="form-control" id="username" name="first_name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" class="form-control" id="phone-number" name="phone" required>
-          </div>
-          <div class="form-group">
-            <label for="bio">Bio</label>
-            <textarea class="form-control" id="bio-info" name="bio"></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label for="interests">Interests</label>
-            <select class="form-control" id="user-interests" name="interests">
-              <option value="love">Love</option>
-              <option value="nostrings">No Strings Attached</option>
-              <option value="hookups">Hookups</option>
-              <option value="friendship">Friendship</option>
-            </select>
-          </div>
-          
-          <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
-        </form>
+ 
+    <header class="header">
+      <div class="logo-container">
+        <a class="logo-link" href="/">
+          <img class="logo-image" src="/static/images/logo.svg" alt="Logo" />
+          <span class="logo-text">Collegelink</span>
+        </a>
       </div>
-      <!-- END PROFILE UPDATE & DATA -->
+      <nav class="nav-container">
+        <ul class="nav-items">
+          {% if is_authenticated %}
+          <li class="nav-item"><a href="/">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="avatar" src="{{ user.profile.avatar }}" />
+              {{ user.profile.name }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+              <a class="dropdown-item" href="{% url 'profile-edit' %}">Edit Profile</a>
+              <a class="dropdown-item" href="{% url 'profile-settings' %}">Settings</a>
+              <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
+            </div>
+          </li>
+          {% else %}
+          <li class="nav-item"><a href="{% url 'account_login' %}">Login</a></li>
+          <li class="nav-item"><a href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}">Signup</a></li>
+          {% endif %}
+        </ul>
+      </nav>
     </header>
+    
+    <style>
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #172554;
+        height: 6%;
+        padding: 2rem;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+    
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    
+      .logo-link {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        text-decoration: none;
+        color: white;
+      }
+    
+      .logo-image {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    
+      .logo-text {
+        font-size: 1.125rem;
+        font-weight: bold;
+      }
+    
+      .nav-container {
+        display: block;
+        position: relative;
+      }
+    
+      .nav-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+    
+      .nav-item {
+        color: white;
+        padding: 0 1rem;
+      }
+    
+      .nav-item a {
+        color: inherit;
+        text-decoration: none;
+      }
+    
+      .dropdown {
+        position: relative;
+      }
+    
+      .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+      }
+    
+      .avatar {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 0.5rem;
+      }
+    
+      .dropdown-icon {
+        width: 1rem;
+        transition: transform 0.3s ease;
+      }
+    
+      .dropdown-menu {
+        position: absolute;
+        right: 0;
+        background-color: #1f2937;
+        color: black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        width: 10rem;
+        padding: 0.5rem;
+        list-style-type: none;
+        z-index: 200;
+        opacity: 0;
+        transform: translateY(-5px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        color: aliceblue;
+        z-index: 200;
+        background-color: #172554;
+      }
+    
+      .dropdown-item {
+        padding: 0.5rem;
+      }
+    
+      .dropdown-item a {
+        color: inherit;
+        text-decoration: none;
+      }
+    </style>
     <!-- End Header -->
 
     <!-- Start Banner 
     ============================================= -->
-    <div class="banner-area inc-content center-responsive text-large" >
+    <div class="banner-area inc-content center-responsive text-large">
       <div
         id="bootcarousel"
         class="carousel slide text-light carousel-fade animate_text"
         data-ride="carousel"
+        
       >
         <!-- Wrapper for slides -->
-        <div class="carousel-inner carousel-zoom" id="banner-contents">
-          <div class="carousel-item active">
+        <div class="carousel-inner carousel-zoom" id="banner-contents" >
+          <div class="carousel-item active" >
             <div
               class="slider-thumb bg-cover"
               style="background-image: url({% static 'assets/img/love2.jpg' %})"
             ></div>
-            <div class="box-table shadow dark">
+            <div class="box-table shadow dark " >
               <div class="box-cell">
                 <div class="container">
                   <div class="row">
@@ -176,7 +274,7 @@
               class="slider-thumb bg-cover"
               style="background-image: url({% static 'assets/img/love3.jpg' %})"
             ></div>
-            <div class="box-table shadow dark">
+            <div class="box-table shadow dark " >
               <div class="box-cell">
                 <div class="container">
                   <div class="row">
@@ -285,14 +383,14 @@
     </div>
     <!-- End Banner -->
 
-    <div id="actions-menu" class="features-area multi-option default-padding-bottom">
+    <div id="actions-menu" class="features-area multi-option default-padding-bottom" >
       <div class="container">
         <div class="features-items text-center">
           <div class="row">
             <!-- Single Item-->
             <div class="single-item feature col-lg-4">
               <div class="item">
-                <img src="{% static 'assets/img/d1.png' %}" alt="dating" />
+                <img class="ce" src="{% static 'assets/img/d1.png' %}" alt="dating" />
                 <h5><a href="profiles/">CAMPUS VIBES</a></h5>
                 <p>
                   {% if is_authenticated %}
@@ -312,7 +410,6 @@
                      </a>.
                   {% else %}
                     Sign in <a href="accounts/login/" class="link" id="here-text">here
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
                     </a> to get started.
                   {% endif %}
                 </p>
@@ -327,7 +424,7 @@
                 <p>
                   {% if is_authenticated  %}
                   {% if request.user.interests != 'love' %}
-                    You can always change your <a class="link" href="profile" >interests</a> anytime to find a match for yourself with people that are looking for true love.
+                    You can always change your <a class="link" href="profile/edit" >interests</a> anytime to find a match for yourself with people that are looking for true love.
                   {% else %}
                     Hey {{ request.user.name }}, there are 1000+ lonely
                     {% if is_authenticated %}
@@ -340,7 +437,6 @@
                     {% endif %}
                   {% endif %}
                     who are looking for serious partners, See their profiles <a href="profiles/" class="link" id="here-text">here
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
 
                     </a>.
                   {% endif %}
@@ -360,7 +456,7 @@
                   
                   {% if is_authenticated  %}
                   {% if interests != 'nostrings' %}
-                    For fun moments, no strings attached or paid hookups,you can change your <a class="link" onclick="openPopup()" href="#">interests</a> to get started.
+                    For fun moments, no strings attached or paid hookups,you can change your <a class="link" onclick="openPopup()" href="profile/edit">interests</a> to get started.
                   {% else %}
                     200+
                     {% if is_authenticated  %}
@@ -373,7 +469,6 @@
                     {% endif %}
                   {% endif %}
                     are up for hookups and one night stands, Find yours <a href="profiles/" class="link" id="here-text">here
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAdNJREFUSEvN1U2IzWEUx/HPYCUv5S2RNSlZoEhsZGc2EoXBygIl5W1hI7LwshBKzUosSGRBJIYSyUYpKyk23llYyVueo3On27+ZO///1NQ8dbvd//N/vuf3nPM753YZwdU1gmyjDj4VezEX4/AKJ/G+moWmyhfgFuZUQJ/QjWftz5vCXyAC3MNOfMdprMfH3PvcCtAUHop34RB+JWQsbmANTmD/cOGDmWtGKu/DqrrwiVm8FRiDrziLB5UosRcpeo2FdeBLcBOhqrrOZ87/5kbk/AouYNtQ8Hl4jCl4iN14m4UL5T+zeG+wFHcRt1yGp53gs9JSs3EVG0sBf5d0TCvF/FKCrsaPkttHWF7gd4rPJ6AX2ztZMdwTSlfiMjYjrh5221Ka5ijO8b+zd5TvwxiP69iQIvr5VSuuLde9VuBR9VAY4HjnYunETXnqW3bmpPx9KfP8Z6gODZ9Ga4fyuHb76inpOIj5+fAljmQhB7RoVflx7BsE3niAVuHrsojtaWlBF5eCvctPrUBVeLTy87RZBNiKD9iDYzn5FhWP98+PTlEGmi1x+HZxxfSsfky8sGesU1mTYSlvHZqMAzmMZuI+zuBJLWq+1HQqNmGPvr+52ur/AQFPVBjY3yQvAAAAAElFTkSuQmCC"/>
                     </a>.
                   {% endif %}
                 {% else %}
@@ -460,72 +555,21 @@
                     Direct enough off others say eldest may exeter she. Possible
                     all ignorant supplied get settling marriage recurred.
                   </p>
-                  <div class="button">
+                  <div class="button" style="background-color: #172554;">
                     <span>01</span>
-                    <a href="#">Read More</a>
+                    <a class="text-whitex" style="color: rgb(186, 189, 191);"  href="#">Read More</a>
                   </div>
                 </div>
               </div>
               <!-- End Single Item -->
               <!-- Single Item -->
-              <div class="item">
-                <!-- <div class="thumb">
-                  <img src="assets/img/s2.jpg" alt="Thumb" />
-                </div> -->
-                <div class="info">
-                  <h4>
-                    <a href="#">Glen Bell</a>
-                  </h4>
-                  <p>
-                    Direct enough off others say eldest may exeter she. Possible
-                    all ignorant supplied get settling marriage recurred.
-                  </p>
-                  <div class="button text-right">
-                    <span>02</span>
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
+             
               <!-- End Single Item -->
               <!-- Single Item -->
-              <div class="item">
-                <!-- <div class="thumb">
-                  <img src="assets/img/s3.jpg" alt="Thumb" />
-                </div> -->
-                <div class="info">
-                  <h4>
-                    <a href="#">Bill Nelson</a>
-                  </h4>
-                  <p>
-                    Direct enough off others say eldest may exeter she. Possible
-                    all ignorant supplied get settling marriage recurred.
-                  </p>
-                  <div class="button text-right">
-                    <span>03</span>
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
+              
               <!-- End Single Item -->
               <!-- Single Item -->
-              <div class="item">
-                <!-- <div class="thumb">
-                  <img src="assets/img/s4.jpg" alt="Thumb" />
-                </div> -->
-                <div class="info">
-                  <h4>
-                    <a href="#">Nelle Townsend</a>
-                  </h4>
-                  <p>
-                    Direct enough off others say eldest may exeter she. Possible
-                    all ignorant supplied get settling marriage recurred.
-                  </p>
-                  <div class="button text-right">
-                    <span>04</span>
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
+             
               <!-- End Single Item -->
             </div>
           </div>
@@ -729,7 +773,7 @@
                   Profiles
             </a>
             {% else %}
-              <a class="cta-button btn circle btn-theme angle effect btn-md" href="auth/">Login</a>
+              <a class="cta-button btn circle btn-theme angle effect btn-md" href="accounts/login/">Login</a>
               {% endif %}
             </div>
           </div>
@@ -1179,4 +1223,3 @@
     </script>
   </body>
 </html>
-{% endblock %}
