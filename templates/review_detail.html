@@ -1,0 +1,14 @@
+{% extends 'layouts/blank.html' %} {% block content %}
+
+{% if reviews %}
+        {% for review in reviews %}
+        <div class="item text-white">
+            <div class="info">
+            <h4><a href="#">&mdash; {{ review.name }}</a></h4>
+            <p class="big-quote"> "{{ review.review }}"</p>
+            
+        </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

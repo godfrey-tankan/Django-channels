@@ -68,7 +68,14 @@ def get_object_or_create_chatroom(request,user_name):
         chatroom.members.add(request.user,other_user)
 
     return redirect('chatroom',chatroom.group_name)
-    
+
+def review_detail(request,review_id):
+    review = get_object_or_404(Reviews, id=review_id)
+    reviews = Reviews.objects.all()
+    context = {'review':review, 'reviews':reviews}
+    return render(request, 'review_detail.html', context)
+
+
 def reviews(request):
     if request.method == 'POST':
         try:
