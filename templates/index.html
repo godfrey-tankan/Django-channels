@@ -234,7 +234,7 @@
                   <div class="row">
                     <div class="col-lg-8 offset-lg-4">
                       <div class="content">
-                        <h2 data-animation="animated slideInDown">
+                        <h2 data-animation="animated slideInDown" >
                           Are You Waiting For Dating ?
                         </h2>
                         <p data-animation="animated slideInRight">
@@ -503,7 +503,7 @@
            
             <p>Tired Of Being Alone</p>
 
-            <p>
+            <p >
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAZxJREFUSEu11D9IV2EUxvGPkiFFUJCgNBQkGLQ0RZNlGEJTDUHU5KSDQUOCQ1AEDYFj0uDi4hAqJtTYXxpqica21oawgkACo94Dr3Ap7+/+EQ9c7oXL+Z7znuc5b5ddjK5dZNsJ/AieYR2X8ePfRtvCj+I14h3xAWfxs1igDfx4BkfnK+jDMN7hQrFAU/gg3mAgg69iL56mgiO5wDn8ihM0gZ9IR3+JfizhGjbzGC5hNX9HkVdN4EN4i8MZcgW/MyxGEcL2pP8PcWNr7nU6P5k7qQLPYrqJoKeSWC9wqKLje7jTxIohXljsAB7jemEUY1nEPWnut9NI7m+3jJ3GcrfQTXg4XBJxEWsI8AwelG15J/jzBDyfEzeSoKPYXxAvhAsBS6MMHl19z7Ct5CgQjoh/U2l55qrupTL4abzfJvkPJjBfBe7k80eYLAA+52Kx7st1wGXw2LzFDAix4vlWF9jJ593p4rmFfWmuX6sEqypYZ0OrGLXdcjC55GZrGk/wsexuOYYQr22MY6EM3oszbcn4lFz2pQy+A+7/qX8B/C1FGDPN2CwAAAAASUVORK5CYII="/>
               This platform makes college life enjoyable by connecting you with what you are looking for, love, fun or just a friend, we got you covered,
               we have a wide range of profiles to choose from and we'll recommend the best match for you according to your preferences.
@@ -553,7 +553,13 @@
                   <h4><a href="#">&mdash; {{ review.name }}</a></h4>
                   <p class="big-quote">"{{ review.review }}"</p>
                   <div class="button">
-                    <span class="text-styles">{{ review.id }}</span>
+                    <span class="text-styles">
+                      {% if review.id < 10 %}
+                      0{{ review.id }}
+                      {% else %}
+                      {{ review.id }}
+                      {% endif %}
+                      </span>
                     <a style="color: rgb(75, 75, 75);" href="{% url 'review-detail' review.id %}" data-review-id="{{ review.id }}">Read More</a>
                   </div>
                 </div>

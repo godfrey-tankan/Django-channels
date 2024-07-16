@@ -12,6 +12,9 @@
     <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
     <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <style type="text/tailwindcss">
         [x-cloak] { 
             display: none !important; 
@@ -19,6 +22,9 @@
         body{
             overflow: hidden;
             background-color: #1e293b;
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
         }
         h1 {
             @apply text-4xl font-bold mb-4
@@ -114,8 +120,12 @@
             overflow: hidden;
         }
         .mobile-messages{
-                font-size: 14px;
-                padding: 10px;
+            font-size: 16px;
+            padding: 10px;
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+          
             }
         .chat-container{
             @apply absolute  right-6 w-3/4 h-full ;
@@ -145,7 +155,7 @@
                 @apply text-lg;
             }
             .mobile-messages{
-                font-size: 14px;
+                font-size: 17px;
                 padding: 10px;
             }
             .button, button, [type='submit'], [type='button'] {
