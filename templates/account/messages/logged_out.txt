@@ -1,1 +1,1 @@
-You're now logged out!
+Your're logged out, log back in first!

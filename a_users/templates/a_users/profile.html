@@ -6,15 +6,15 @@
     <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
     <div class="text-center">
         <h1>{{ profile.name }}</h1>
-        <div class="text-gray-400 mb-2 -mt-3">@{{ profile.user.username }}</div>
+        <div class="text-white mb-2 -mt-3">@{{ profile.user.username }}</div>
         {% if profile.info %}
         <div class="mt-8 hyphens-auto">{{ profile.info|linebreaksbr }}</div>
         {% endif %}
         {% if profile.gender %}
-        <div class=" text-black ">Gender: {{ profile.gender }}</div>
+        <div class=" text-white ">Gender: {{ profile.gender }}</div>
         {% endif %}
         {% if profile.interests %}
-        <div class="text-black text-large"> Interest: {{ profile.interests }}</div>
+        <div class="text-white text-large"> Interest: {{ profile.interests }}</div>
         {% endif %}
         {% if profile.user != user %}
         <a class="button" href="{% url 'start-chat' profile.user.username%}">Start a Chat</a>
