@@ -31,8 +31,12 @@ def chat_view(request,chatroom_name='public-chat'):
             message.save()
             context = {'message':message, 'user':request.user}
             return render(request, 'a_rtchat/partials/chat_message_p.html',context)
+    try:
+        all_users = User.objects.all()
+    except:
+        all_users = None
         
-    context = {'chat_messages':chat_messages, 'form':form, 'chatroom_name':chatroom_name, 'other_user':other_user}
+    context = {'chat_messages':chat_messages, 'form':form, 'chatroom_name':chatroom_name, 'other_user':other_user, 'all_users':all_users}
     return render(request, 'a_rtchat/chat.html', context)
 
 def home(request):
@@ -66,8 +70,6 @@ def get_object_or_create_chatroom(request,user_name):
     return redirect('chatroom',chatroom.group_name)
     
 def reviews(request):
-    data = request.body
-    print(data)
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
