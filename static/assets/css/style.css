@@ -3,7 +3,9 @@
 
 @import url("{% static 'assets/css/font-awesome.min.css' %}");
 /*--
+
 /*------------- Map -------------*/
+
 @font-face {
   font-family: "font-awesome";
   src: url("{% static 'assets/fonts/fontawesome-webfont.ttf' %}");
@@ -5099,7 +5101,6 @@ i.fas.fa-calendar {
 
 .accordion .card-header h4:after {
   font-family: "Font Awesome 5 Free";
-  content: "\f107";
   position: absolute;
   right: 30px;
   top: 37px;
@@ -5107,7 +5108,6 @@ i.fas.fa-calendar {
 }
 
 .accordion .card-header h4.collapsed:after {
-  content: "\f105";
   font-weight: 600;
 }
 

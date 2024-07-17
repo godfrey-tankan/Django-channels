@@ -334,7 +334,7 @@ nav.bootsnav.nav-box .dropdown-menu {
 .navbar-collapse:before,
 .navbar-collapse:after {
   display: table;
-  content: " ";
+  text-decoration: " ";
 }
 
 .nav:after,
@@ -410,12 +410,12 @@ nav.bootsnav .megamenu-fw .dropdown-menu {
   left: auto;
 }
 
-nav.bootsnav .megamenu-content {
+nav.bootsnav .megamenu-text-decoration {
   padding: 15px;
   width: 100% !important;
 }
 
-nav.bootsnav .megamenu-content .title {
+nav.bootsnav .megamenu-text-decoration .title {
   color: #333333;
   font-weight: 600;
   margin-top: 0;
@@ -799,7 +799,7 @@ nav.navbar.attr-border .attr-nav {
 
 nav.navbar.attr-border .attr-nav::before {
   background: #e7e7e7 none repeat scroll 0 0;
-  content: "";
+  text-decoration: "";
   height: 30px;
   left: 0;
   margin-top: -15px;
@@ -1089,11 +1089,11 @@ body.on-side .body-overlay {
 }
 
 nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:hover::after {
-  content: "\f106";
+  text-decoration: "";
 }
 
 nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle::after {
-  content: "\f107";
+  text-decoration: "";
   font-family: "Font Awesome 5 Free";
   margin-left: 5px;
   margin-top: 2px;
@@ -1440,7 +1440,7 @@ nav.navbar.bootsnav {
     position: absolute;
     left: 0;
     top: 0;
-    content: "";
+    text-decoration: "";
     height: 100%;
     width: 15%;
     background: #ff3514;
@@ -1462,7 +1462,7 @@ nav.navbar.bootsnav {
     position: absolute;
     right: 0;
     top: 0;
-    content: "";
+    text-decoration: "";
     height: 93px;
     width: 500%;
     background: #ff3514;
@@ -1514,7 +1514,7 @@ nav.navbar.bootsnav {
     top: -2px;
     position: absolute;
     left: 10%;
-    content: "";
+    text-decoration: "";
     height: 0px;
     width: 80%;
     border-bottom: 3px solid #ff3514;
@@ -1696,7 +1696,7 @@ nav.navbar.bootsnav {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     float: right;
-    content: "\f105";
+    text-decoration: "\f105";
     margin-top: 0;
   }
 
@@ -1709,7 +1709,7 @@ nav.navbar.bootsnav {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     float: right;
-    content: "\f105";
+    text-decoration: "\f105";
     margin-top: 0;
   }
 
@@ -1722,7 +1722,7 @@ nav.navbar.bootsnav {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     float: left;
-    content: "\f104";
+    text-decoration: "\f104";
     margin-top: 0;
   }
 
@@ -1730,44 +1730,44 @@ nav.navbar.bootsnav {
     top: -1px;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration {
     padding: 0 15px !important;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content > li {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration > li {
     padding: 50px 35px;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content.tabbed {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration.tabbed {
     padding: 0;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content.tabbed > li {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration.tabbed > li {
     padding: 0;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .col-menu {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration .col-menu {
     padding: 0 30px;
     margin: 0 -0.5px;
     border-left: solid 1px #f0f0f0;
     border-right: solid 1px #f0f0f0;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .col-menu:first-child {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration .col-menu:first-child {
     border-left: none;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .col-menu:last-child {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration .col-menu:last-child {
     border-right: none;
   }
 
-  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content {
+  nav.navbar.bootsnav ul.dropdown-menu.megamenu-text-decoration .text-decoration {
     display: none;
   }
 
   nav.navbar.bootsnav
-    ul.dropdown-menu.megamenu-content
-    .content
+    ul.dropdown-menu.megamenu-text-decoration
+    .text-decoration
     ul.menu-col
     li
     a {
@@ -1784,8 +1784,8 @@ nav.navbar.bootsnav {
   }
 
   nav.navbar.bootsnav
-    ul.dropdown-menu.megamenu-content
-    .content
+    ul.dropdown-menu.megamenu-text-decoration
+    .text-decoration
     ul.menu-col
     li
     a:hover {
@@ -1793,8 +1793,8 @@ nav.navbar.bootsnav {
   }
 
   nav.navbar.bootsnav
-    ul.dropdown-menu.megamenu-content
-    .content
+    ul.dropdown-menu.megamenu-text-decoration
+    .text-decoration
     ul.menu-col
     li
     a:hover {
@@ -1802,15 +1802,15 @@ nav.navbar.bootsnav {
   }
 
   nav.navbar.bootsnav.color-yellow
-    ul.dropdown-menu.megamenu-content
-    .content
+    ul.dropdown-menu.megamenu-text-decoration
+    .text-decoration
     ul.menu-col
     li
     a:hover {
     color: #ff9800;
   }
 
-  nav.navbar.bootsnav.on ul.dropdown-menu.megamenu-content .content {
+  nav.navbar.bootsnav.on ul.dropdown-menu.megamenu-text-decoration .text-decoration {
     display: block !important;
     height: auto !important;
   }
@@ -2131,7 +2131,7 @@ nav.navbar.bootsnav {
     box-shadow: 0px 0px 0px;
   }
 
-  nav.bootsnav.navbar-sidebar ul.nav .megamenu-content .col-menu {
+  nav.bootsnav.navbar-sidebar ul.nav .megamenu-text-decoration .col-menu {
     border: none !important;
   }
 
@@ -2167,7 +2167,7 @@ nav.navbar.bootsnav {
     li.dropdown
     > a:before {
     font-family: "FontAwesome";
-    content: "\f105";
+    text-decoration: "\f105";
     float: right;
   }
 
@@ -2177,14 +2177,14 @@ nav.navbar.bootsnav {
     ul.dropdown-menu
     li.dropdown.on
     > a:before {
-    content: "\f107";
+    text-decoration: "\f107";
   }
 
-  nav.bootsnav.navbar-sidebar ul.dropdown-menu.megamenu-content > li {
+  nav.bootsnav.navbar-sidebar ul.dropdown-menu.megamenu-text-decoration > li {
     padding: 0 !important;
   }
 
-  nav.bootsnav.navbar-sidebar .dropdown .megamenu-content .col-menu {
+  nav.bootsnav.navbar-sidebar .dropdown .megamenu-text-decoration .col-menu {
     display: block;
     float: none !important;
     padding: 0;
@@ -2192,7 +2192,7 @@ nav.navbar.bootsnav {
     width: 100%;
   }
 
-  nav.bootsnav.navbar-sidebar .dropdown .megamenu-content .col-menu .title {
+  nav.bootsnav.navbar-sidebar .dropdown .megamenu-text-decoration .col-menu .title {
     padding: 7px 0;
     text-transform: none;
     font-weight: 400;
@@ -2205,33 +2205,33 @@ nav.navbar.bootsnav {
 
   nav.bootsnav.navbar-sidebar
     .dropdown
-    .megamenu-content
+    .megamenu-text-decoration
     .col-menu
     .title:before {
     font-family: "FontAwesome";
-    content: "\f105";
+    text-decoration: "\f105";
     float: right;
   }
 
   nav.bootsnav.navbar-sidebar
     .dropdown
-    .megamenu-content
+    .megamenu-text-decoration
     .col-menu.on
     .title:before {
-    content: "\f107";
+    text-decoration: "\f107";
   }
 
-  nav.bootsnav.navbar-sidebar .dropdown .megamenu-content .col-menu {
+  nav.bootsnav.navbar-sidebar .dropdown .megamenu-text-decoration .col-menu {
     border: none;
   }
 
-  nav.bootsnav.navbar-sidebar .dropdown .megamenu-content .col-menu .content {
+  nav.bootsnav.navbar-sidebar .dropdown .megamenu-text-decoration .col-menu .text-decoration {
     padding: 0 0 0 15px;
   }
 
   nav.bootsnav.navbar-sidebar
     .dropdown
-    .megamenu-content
+    .megamenu-text-decoration
     .col-menu
     ul.menu-col
     li
@@ -2502,7 +2502,7 @@ nav.navbar.bootsnav {
     margin-bottom: 30px;
   }
 
-  nav.bg-dark.navbar.bootsnav .dropdown .megamenu-content .col-menu .title {
+  nav.bg-dark.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu .title {
     border-bottom: 1px solid #e0e0e0;
     font-size: 14px;
   }
@@ -2540,14 +2540,14 @@ nav.navbar.bootsnav {
   nav.navbar.bootsnav li.dropdown a.dropdown-toggle:before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f105";
+    text-decoration: "\f105";
     float: right;
     font-size: 16px;
     margin-left: 10px;
   }
 
   nav.navbar.bootsnav li.dropdown.on > a.dropdown-toggle:before {
-    content: "\f107";
+    text-decoration: "\f107";
   }
 
   nav.navbar.bootsnav .navbar-nav > li > a {
@@ -2637,7 +2637,7 @@ nav.navbar.bootsnav {
     display: none;
   }
 
-  nav.navbar.bootsnav .dropdown .megamenu-content .col-menu .title {
+  nav.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu .title {
     padding: 13px 15px 13px 0;
     line-height: 24px;
     text-transform: none;
@@ -2652,15 +2652,15 @@ nav.navbar.bootsnav {
     text-transform: uppercase;
   }
 
-  nav.navbar.bootsnav .dropdown .megamenu-content .col-menu ul > li > a {
+  nav.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu ul > li > a {
     display: block;
     width: 100%;
     border-bottom: solid 1px #e0e0e0;
     padding: 10px 0;
   }
 
-  nav.navbar.bootsnav .dropdown .megamenu-content .col-menu .title::before {
-    content: "\f105";
+  nav.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu .title::before {
+    text-decoration: "\f105";
     float: right;
     font-family: "Font Awesome 5 Free";
     font-size: 16px;
@@ -2670,13 +2670,13 @@ nav.navbar.bootsnav {
     right: -15px;
   }
 
-  nav.navbar.bootsnav .dropdown .megamenu-content .col-menu:last-child .title {
+  nav.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu:last-child .title {
     border-bottom: none;
   }
 
   nav.navbar.bootsnav
     .dropdown
-    .megamenu-content
+    .megamenu-text-decoration
     .col-menu.on:last-child
     .title {
     border-bottom: solid 1px #e0e0e0;
@@ -2684,7 +2684,7 @@ nav.navbar.bootsnav {
 
   nav.navbar.bootsnav
     .dropdown
-    .megamenu-content
+    .megamenu-text-decoration
     .col-menu:last-child
     ul.menu-col
     li:last-child
@@ -2692,11 +2692,11 @@ nav.navbar.bootsnav {
     border-bottom: none;
   }
 
-  nav.navbar.bootsnav .dropdown .megamenu-content .col-menu.on .title:before {
-    content: "\f107";
+  nav.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu.on .title:before {
+    text-decoration: "\f107";
   }
 
-  nav.navbar.bootsnav .dropdown .megamenu-content .col-menu .content {
+  nav.navbar.bootsnav .dropdown .megamenu-text-decoration .col-menu .text-decoration {
     padding: 0 0 0 15px;
   }
 
@@ -2718,15 +2718,15 @@ nav.navbar.bootsnav {
     margin-bottom: 0;
   }
 
-  nav.bootsnav .megamenu-content {
+  nav.bootsnav .megamenu-text-decoration {
     padding: 0;
   }
 
-  nav.bootsnav .megamenu-content .col-menu {
+  nav.bootsnav .megamenu-text-decoration .col-menu {
     padding-bottom: 0;
   }
 
-  nav.bootsnav .megamenu-content .title {
+  nav.bootsnav .megamenu-text-decoration .title {
     cursor: pointer;
     display: block;
     padding: 10px 15px;
@@ -2734,7 +2734,7 @@ nav.navbar.bootsnav {
     font-weight: normal;
   }
 
-  nav.bootsnav .megamenu-content .content {
+  nav.bootsnav .megamenu-text-decoration .text-decoration {
     display: none;
   }
 
@@ -2800,7 +2800,7 @@ nav.navbar.bootsnav {
     margin-bottom: 0;
   }
 
-  nav.navbar.bootsnav .megamenu-content.tabbed {
+  nav.navbar.bootsnav .megamenu-text-decoration.tabbed {
     padding-left: 0 !important;
   }
 
@@ -2892,7 +2892,7 @@ nav.navbar.bootsnav {
   }
 
   nav.navbar.bootsnav.navbar-mobile .tab-menu,
-  nav.navbar.bootsnav.navbar-mobile .tab-content {
+  nav.navbar.bootsnav.navbar-mobile .tab-text-decoration {
     width: 100%;
     display: block;
   }
@@ -3222,8 +3222,8 @@ nav.navbar.navbar-inverse ul.cart-list > li.total .pull-right {
 }
 
 nav.navbar.navbar-inverse.megamenu
-  ul.dropdown-menu.megamenu-content
-  .content
+  ul.dropdown-menu.megamenu-text-decoration
+  .text-decoration
   ul.menu-col
   li
   a,
@@ -3290,7 +3290,7 @@ nav.navbar.navbar-inverse .dropdown-tabs .tab-menu > ul > li > a {
   border-bottom: solid 1px #303030;
 }
 
-nav.navbar.navbar-inverse .dropdown-tabs .tab-content {
+nav.navbar.navbar-inverse .dropdown-tabs .tab-text-decoration {
   border-left: solid 1px #303030;
 }
 
@@ -3325,7 +3325,7 @@ nav.navbar-inverse.navbar-full .navbar-toggle {
     border-bottom: solid 1px #303030;
   }
 
-  nav.navbar.navbar-inverse ul.dropdown-menu.megamenu-content .col-menu {
+  nav.navbar.navbar-inverse ul.dropdown-menu.megamenu-text-decoration .col-menu {
     border-left: solid 1px #303030;
     border-right: solid 1px #303030;
   }
@@ -3378,19 +3378,19 @@ nav.navbar-inverse.navbar-full .navbar-toggle {
     border-bottom: solid 1px #303030;
   }
 
-  nav.navbar.navbar-inverse .dropdown .megamenu-content .col-menu .title {
+  nav.navbar.navbar-inverse .dropdown .megamenu-text-decoration .col-menu .title {
     border-bottom: solid 1px #303030;
     color: #eee;
   }
 
-  nav.navbar.navbar-inverse .dropdown .megamenu-content .col-menu ul > li > a {
+  nav.navbar.navbar-inverse .dropdown .megamenu-text-decoration .col-menu ul > li > a {
     border-bottom: solid 1px #303030;
     color: #999 !important;
   }
 
   nav.navbar.navbar-inverse
     .dropdown
-    .megamenu-content
+    .megamenu-text-decoration
     .col-menu.on:last-child
     .title {
     border-bottom: solid 1px #303030;
