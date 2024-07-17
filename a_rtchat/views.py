@@ -12,15 +12,17 @@ import json
 @login_required
 def chat_view(request,chatroom_name='public-chat'):
     request_user_interests = get_object_or_404(Profile, user=request.user).interests.split(',')[0]
-    print('request_user_interests:',request_user_interests)
-    if request_user_interests.lower() == 'nostrings':
-        chatroom_name = 'NoStrings'
-    elif request_user_interests.lower() == 'love':
-        chatroom_name = 'Love_Birds'
-    elif request_user_interests.lower() == 'friendship':
-        chatroom_name = 'Real-Friends'
-    elif request_user_interests.lower() == 'hookups':
-        chatroom_name = 'Hookups'
+    if len(chatroom_name) > 20:
+        chatroom_name = chatroom_name
+    else:
+        if request_user_interests.lower() == 'nostrings':
+            chatroom_name = 'NoStrings'
+        elif request_user_interests.lower() == 'love':
+            chatroom_name = 'Love_Birds'
+        elif request_user_interests.lower() == 'friendship':
+            chatroom_name = 'Real-Friends'
+        elif request_user_interests.lower() == 'hookups':
+            chatroom_name = 'Hookups'
     chat_group = get_object_or_404(ChatGroup, group_name=chatroom_name)
     chat_messages = chat_group.chat_messages.all()[:20]
     form = ChatMessageCreateForm()
