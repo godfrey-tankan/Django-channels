@@ -1,20 +1,20 @@
 {% extends 'layouts/blank.html' %} {% block content %}
-<wrapper class="block max-w-2xl mx-auto my-10 px-6 scroll-lock ">
+<wrapper class="block max-w-2xl mx-auto my-10 px-6 " style="margin-top: -2%;" >
   <div class="all-users">
     <div class="flex items-center justify-between">
-      <a href="#" class="text-2xl font-bold text-white" style="padding-bottom: 30px;font-family: Nunito, sans-serif;">People</a>
+      <a href="#" class="text-2xl font-bold text-white" style="padding-bottom: 30px;font-family: Nunito, sans-serif;">Chats:</a>
     </div>
     {% for current_user in all_users %}
-    {% if current_user.username == user.username %}
+    {% if current_user.user.username == user.username %}
     {% else %}
     <div class="profile-handles" style="border-bottom: 1px solid #283242;border-radius: 1%;">
-      <a href="{% url 'start-chat' current_user.username %}" class="flex items-center gap-2 p-4">
+      <a href="{% url 'start-chat' current_user.user.username %}" class="flex items-center gap-2 p-4">
         <img
         class="w-10 h-10 rounded-full object-cover"
-        src="{{ current_user.profile.avatar }}"
+        src="{{ current_user.avatar }}"
         />
         <div>
-          <span class="font-bold text-white">{{ current_user.profile.name }} <br> <span class="text-sm font-light text-gray-400">{{ current_user.profile.info }}</span></span>
+          <span class="font-bold text-white">{{ current_user.name }} <br> <span class="text-sm font-light text-gray-400">{{ current_user.info }}</span></span>
          
         </div>
       </a>
@@ -30,9 +30,10 @@
   >
     <div
       class="flex justify-center text-emerald-400 bg-gray-800 p-2 sticky top-0 z-10 mobile-header"
-    style="background-color: #1f2937;"
-
+    style="background-color: #202b3a;"
     >
+    
+    <span style="display: flex;padding-right:20px; color: aliceblue; font-weight: bolder;text-transform: capitalize;">{{ chatroom_name }}</span>
     {% if other_user %}
     <div id="online-icon" class="gray-dot absolute top-2 left-2"></div>
       <a href="{% url 'profile' other_user.username %}">
@@ -49,7 +50,7 @@
       </a>
     {% else %}
       <div id="online-icon"></div>
-        <span id="online-count" class="pr-1"></span>online
+        <span id="online-count" class="pr-1">...</span>online
     {% endif %}
 
     </div>

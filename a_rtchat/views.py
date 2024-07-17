@@ -4,11 +4,22 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.http import Http404
 from .content_processor import custom_context
+from django.db.models import Q
+from a_users.models import Profile
 import json
 
 # Create your views here.
 @login_required
 def chat_view(request,chatroom_name='public-chat'):
+    request_user_interests = get_object_or_404(Profile, user=request.user).interests.split(',')[0]
+    if request_user_interests.lower() == 'nostrings':
+        chatroom_name = 'NoStrings Group Chat'
+    elif request_user_interests.lower() == 'love':
+        chatroom_name = 'Love Group Chat'
+    elif request_user_interests.lower() == 'friendship':
+        chatroom_name = 'Friendship Group Chat'
+    elif request_user_interests.lower() == 'hookup':
+        chatroom_name = 'Hookup Group Chat'
     chat_group = get_object_or_404(ChatGroup, group_name=chatroom_name)
     chat_messages = chat_group.chat_messages.all()[:20]
     form = ChatMessageCreateForm()
@@ -32,7 +43,13 @@ def chat_view(request,chatroom_name='public-chat'):
             context = {'message':message, 'user':request.user}
             return render(request, 'a_rtchat/partials/chat_message_p.html',context)
     try:
-        all_users = User.objects.all()
+        request_user_profile = Profile.objects.get(user=request.user)
+        request_user_interests = request_user_profile.interests.split(',')
+        q_objects = [Q(interests__icontains=interest.strip()) for interest in request_user_interests]
+        combined_q = q_objects[0]
+        for q in q_objects[1:]:
+            combined_q |= q
+        all_users = Profile.objects.filter(combined_q).exclude(user=request.user)
     except:
         all_users = None
         
