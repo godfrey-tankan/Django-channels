@@ -8,7 +8,7 @@ def custom_context(request):
         context['gender'] = user.profile.gender  
         context['is_admin'] = user.is_superuser
         context['interests'] = user.profile.interests
-        context['profile_pic_path'] = user.profile.avatar
+        context['profile_pic_path'] = user.profile.image
 
     else:
         context['is_authenticated'] = False
