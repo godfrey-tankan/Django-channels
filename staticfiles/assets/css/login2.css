@@ -1,0 +1,268 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure full height for main and body */
+html,
+body,
+main {
+  height: 100%;
+}
+.space {
+  margin-bottom: 30%;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #f9fbfc, #002aff);
+  filter: blur(10px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar {
+  background-color: #203985;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .brand-logo {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+main {
+  flex: 1; /* Occupy remaining vertical space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(130vh - 200px);
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.form-container::-webkit-scrollbar {
+  display: none; /* WebKit (Safari, Chrome) */
+}
+
+.form-wrapper {
+  padding: 30px;
+}
+
+.form {
+  max-width: 100%;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group i {
+  margin-right: 10px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.input-group textarea {
+  resize: vertical; /* Allow vertical resizing of textarea */
+}
+#profile_picture_preview {
+  margin-left: 25%;
+  display: flex;
+}
+
+.input-group #button {
+  width: 110%;
+  padding: 10px;
+  background-color: #203985;
+  color: #fff;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.input-group #button:hover {
+  background-color: #0650a0;
+}
+
+footer {
+  background-color: #203985;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .space {
+    margin-bottom: 40%;
+  }
+  .form-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: calc(200vh - 300px);
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .form-container::-webkit-scrollbar {
+    display: none; /* WebKit (Safari, Chrome) */
+  }
+
+  .form-wrapper {
+    padding: 10px;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  .input-group i {
+    margin-right: 10px;
+  }
+  .validation-error {
+    color: red;
+  }
+  .validation-success {
+    color: green;
+  }
+  .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .message.error {
+    background-color: #ffcccc;
+    color: #cc0000;
+  }
+
+  .message.success {
+    background-color: #ccffcc;
+    color: #006600;
+  }
+
+  .input-group input,
+  .input-group textarea,
+  .input-group select {
+    width: 800px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #signin-container .input-group input {
+    width: 500px;
+    padding: 13px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #signin-container .input-group #button {
+    width: 500px;
+    padding: 13px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+  }
+
+  .input-group textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+  }
+
+  .input-group #button {
+    width: 100%;
+    padding: 20px;
+    background-color: #203985;
+    margin-left: 2%;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+}

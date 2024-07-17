@@ -1,0 +1,95 @@
+.cta-button {
+  animation: border-color-change 5s infinite;
+  border: 3px solid #51a2fa;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+@keyframes border-color-change {
+  0% {
+    border-color: #51a2fa;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #51a2fa;
+  }
+}
+
+#login-button-mobile {
+  color: #51a2fa;
+  padding: 2px;
+  background-color: transparent;
+  border: 1px solid #203985;
+  border-radius: 10%;
+  animation: button-color-change 5s infinite;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#login-button-mobile:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+#login-button {
+  color: #51a2fa;
+  margin-top: -9px;
+  position: absolute;
+  padding: 2px;
+  right: 1%;
+  border: 1px solid #203985;
+  animation: button-color-change 5s infinite;
+  border-radius: 10%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#login-button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+@keyframes button-color-change {
+  0% {
+    border-color: #254197;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #254094;
+  }
+}
+#here-text {
+  color: #000;
+  padding: 2px;
+  background-image: linear-gradient(to right, #4193eb, #4193eb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-decoration: underline;
+  animation: here-color-change 1s ease-in-out infinite;
+}
+#here-text:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+@keyframes here-color-change {
+  0% {
+    background-image: linear-gradient(to right, #4193eb, #4193eb);
+  }
+  50% {
+    background-image: linear-gradient(to right, #50a3fc, #50a3fc);
+    text-decoration: underline;
+  }
+  100% {
+    background-image: linear-gradient(to right, #4193eb, #4193eb);
+  }
+}
