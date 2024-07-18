@@ -142,7 +142,12 @@
         }
         .header-space{
                 margin-top: -2%
-            }
+        }
+        
+        #arrow-back{
+          display: none;
+          visibility:hidden ;
+        }
 
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
@@ -193,12 +198,22 @@
             .user-name-styles{
                 font-size: 11px;
             }
+            #arrow-back{
+                display: block;
+                visibility: visible;
+                font-size: 30px;
+                color: white;  
+                position: absolute;
+                left: 0;
+                top: 30%;
+            }
             .private-note{
                 font-size: 10px;
                 color: rgb(51, 70, 76);
                 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 margin-left: 0%;
             }
+          
             .mobile-header{
                background-color: rgb(26, 37, 46);
                @apply fixed top-4 left-0 w-full;
