@@ -19,7 +19,7 @@ id="main-header"
     <ul class="navitems flex items-center justify-center h-full">
       {% if request.user.is_authenticated %}
 
-      <li class="text-white"><a class="text-white" href="/">Home</a></li>
+      <li id="home-link" class="text-white"><a class="text-white" href="/">Home</a></li>
       <li x-data="{ dropdownOpen: false }" class="relative">
         <a
           @click="dropdownOpen = !dropdownOpen"
