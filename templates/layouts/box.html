@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block layout %}
-<content class="block max-w-3xl mx-auto md:p-12 w-full" style="display: flex;justify-content: center;align-items: center;justify-items: center;">
-    <div class="bg-white rounded-2xl md:drop-shadow-2xl shadow-black w-full p-8">
-
-    {% block content %} 
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <content class="block max-w-3xl md:p-12 w-full text-white" style="background-color: transparent; border-radius: 1rem; box-shadow: 0 1px 6px 1px #0f172a;">
+    {% block content %}
     {% endblock %}
+  </content>
 
-    </div>
-</content>
+</div>
 {% endblock %}
