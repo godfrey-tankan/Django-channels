@@ -11,7 +11,7 @@
       <a href="{% url 'start-chat' current_user.user.username %}" class="flex items-center gap-2 p-4">
         <img
         class="w-10 h-10 rounded-full object-cover"
-        src="{{ current_user.image.url }}"
+        src="{{ current_user.avatar}}"
         />
         <div>
           <span class="font-bold text-white">{{ current_user.name }} <br> <span class="text-sm font-light text-gray-400">{{ current_user.info }}</span></span>
