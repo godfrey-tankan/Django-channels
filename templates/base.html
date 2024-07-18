@@ -12,6 +12,8 @@
     <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
     <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -138,6 +140,9 @@
         width: 80%;
         color: white;
         }
+        .header-space{
+                margin-top: -2%
+            }
 
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
@@ -166,11 +171,17 @@
 
 
             }
+            
+            .hide{
+                display: none;
+                visibility: hidden;
+            }
+            .show{
+                visibility: visible;
+
+            }
             .chat-container{
                 @apply absolute top-0 left-0 w-full;
-                display: none;
-               
-
             }
          
            
@@ -186,11 +197,11 @@
                 font-size: 10px;
                 color: rgb(51, 70, 76);
                 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                margin-left: 60%;
+                margin-left: 0%;
             }
             .mobile-header{
                background-color: rgb(26, 37, 46);
-               @apply fixed top-0 left-0 w-full;
+               @apply fixed top-4 left-0 w-full;
 
                 
             }
