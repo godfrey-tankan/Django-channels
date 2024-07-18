@@ -148,6 +148,36 @@
           display: none;
           visibility:hidden ;
         }
+        #online-icon{
+        display: flex;
+        margin-top: 20px;
+            }
+        
+        /* Scrollbar styles */
+    .mobile-chat-container::-webkit-scrollbar {
+      width: 12px;
+    }
+    .profile-handle{
+        background-color: #202b3a;
+    }
+    .profile-handle:hover{
+        background-color: #253040;
+        transition: .3s ease-in-out;
+    }
+
+
+    .mobile-chat-container::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    .mobile-chat-container::-webkit-scrollbar-thumb {
+      background-color: #202b3a;
+      border-radius: 6px;
+    }
+
+    .mobile-chat-container::-webkit-scrollbar-thumb:hover {
+      background-color: #273446;
+    }
 
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
@@ -156,6 +186,11 @@
             }
             h2 {
                 @apply text-lg;
+            }
+            #online-icon{
+                position: absolute;
+                margin-left: 90%;
+                top: 25%;
             }
             .mobile-messages{
                 font-size: 17px;
@@ -173,22 +208,17 @@
             }
             .all-users{
                 @apply absolute top-0 left-0 w-full;
-
-
             }
-            
             .hide{
                 display: none;
                 visibility: hidden;
             }
             .show{
                 visibility: visible;
-
             }
             .chat-container{
-                @apply absolute top-0 left-0 w-full;
+                @apply absolute top-10 left-0 w-full;
             }
-         
            
             .mobile-chat-container{
                 padding-top: 80px;
