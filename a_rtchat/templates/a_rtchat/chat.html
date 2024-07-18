@@ -30,7 +30,7 @@
       <div id="online-icon" class="gray-dot absolute top-2 left-2"></div>
       <a href="{% url 'profile' other_user.username %}">
         <div class="flex items-center gap-2 p-4 sticky top-0 z-10">
-          <img class="w-10 h-10 rounded-full object-cover" src="{{ other_user.profile.image.url }}" />
+          <img  class="w-10 h-10 rounded-full object-cover" src="{{ other_user.profile.image.url }}" />
           <div>
             <span class="font-bold text-white">{{ other_user.profile.name }}
 
@@ -85,6 +85,7 @@
     const currentUrl = window.location.href;
       if (currentUrl.match(/chat\/room\//)) {
         document.getElementById('chat_window').classList.add('show');
+        document.getElementById('main-header').classList.add('hide');
       }
       // Check if the URL contains 'profiles/'
       else if (currentUrl.match(/profiles\//)) {
