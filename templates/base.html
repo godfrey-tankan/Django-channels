@@ -356,11 +356,15 @@
         @media (max-width: 767px) {
 
         #search-input{
-            width: 100%;
-            margin-left: 15px;
+            width: 90%;
+            margin-left: 20px;
             border: 1px solid #283242;
             border-radius: 4px;
             }
+            #search-input:hover{
+            transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+            transition: .4s ease-in-out;
+        }
             /*
             #search-icon{
             position: absolute;
@@ -418,6 +422,16 @@
             }
             .user-name-styles{
                 font-size: 11px;
+                margin-left: -40px;
+                display: flex;
+                max-width: max-content;
+                padding: 2px;
+            }
+            .user-name-styles:hover{
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                transition: .3s ease-in-out;
             }
             #arrow-back{
                 display: block;

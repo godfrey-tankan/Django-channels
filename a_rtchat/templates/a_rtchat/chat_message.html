@@ -41,7 +41,8 @@
     <!-- <span class="text-white">{{message.author.profile.name}}</span> -->
      {% if other_user %}
      {% else %}
-    <span class="text-gray-400 user-name-styles">@{{message.author.username}}</span>
+    <span id="username-section" class="text-gray-400 user-name-styles"><a href="{% url 'profile' message.author.username%}">@{{message.author.username}}</a></span>
+    
     {% endif %}
   </div>
 </li>
