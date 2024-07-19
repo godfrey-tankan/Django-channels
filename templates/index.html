@@ -702,7 +702,7 @@
     ============================================= -->
     <div
       class="achivement-area full text-white default-padding"
-      style="background-image: url({% static 'assets/img/logo.pngs' %});background-color: rgba(24, 24, 24, 0.274);"
+      style="background-image: url({% static 'assets/img/love-wount.webp' %});"
       >
       <div class="container">
       
@@ -714,12 +714,11 @@
             <div class="fun-fact">
               <div class="counter">
                 <div class="count">
-                  <div class="timer" data-to="28" data-speed="5000"></div>
+                  <div class="timer" data-to="{{user_totals}}" data-speed="5000"></div>
                 </div>
               </div>
               <div class="info">
-                <h5>Total Members</h5>
-                <p>1600</p>
+                <h5 class="text-white">Total Members</h5>
               </div>
             </div>
           </div>
@@ -727,11 +726,10 @@
             <div class="fun-fact">
               <div class="counter">
                 <div class="count">
-                  <div class="timer plus" data-to="27" data-speed="5000"></div>
+                  <div class="timer plus" data-to="{{active_users}}" data-speed="5000"></div>
                 </div>
               </div>
               <div class="info">
-                <h5>750</h5>
                 <p>Active Members</p>
               </div>
             </div>
@@ -740,7 +738,7 @@
             <div class="fun-fact">
               <div class="counter">
                 <div class="count">
-                  <div class="timer" data-to="54" data-speed="5000"></div>
+                  <div class="timer plus" data-to="{{boys_or_gilrs}}" data-speed="5000"></div>
                 </div>
               </div>
               <div class="info">
