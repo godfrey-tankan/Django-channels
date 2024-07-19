@@ -5628,7 +5628,21 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.hotties-section{
-  background-color: #1e2726;
-  color:white;
+.hotties-section {
+  background: linear-gradient(to bottom, #adadad, #082f49, #ffffff);
+  background-size: 200% 200%;
+  animation: steaming 10s ease infinite;
+  color: white;
+}
+
+@keyframes steaming {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
