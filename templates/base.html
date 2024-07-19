@@ -153,9 +153,10 @@
           visibility:hidden ;
         }
         #online-icon{
-        display: flex;
-        margin-top: 20px;
-            }
+            display: flex;
+            margin-top: 20px;
+            z-index: 2000000;
+        }
         
             /* Scrollbar styles */
         .mobile-chat-container::-webkit-scrollbar {
@@ -339,17 +340,28 @@
             max-height: 100%;
             object-fit: contain;
             }
-        
+        #search-input{
+            background-color: #273245;
+            padding: 8px;
+            border-radius: 3px;
+            color: white;
+            max-width: 85%;
+        }
+        #search-input:hover{
+            transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+            transition: .4s ease-in-out;
+        }
        
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
 
-            /* #search-input{
-            width: 95%;
-            margin-left: 10px;
+        #search-input{
+            width: 100%;
+            margin-left: 15px;
             border: 1px solid #283242;
             border-radius: 4px;
             }
+            /*
             #search-icon{
             position: absolute;
             left: 90%;
