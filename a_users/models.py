@@ -20,6 +20,11 @@ class Profile(models.Model):
         if self.displayname:
             return self.displayname
         return self.user.username 
+    @property
+    def mobile(self):
+        if self.phone:
+            return self.phone
+        return None
     
     @property
     def avatar(self):

@@ -79,20 +79,16 @@
     allUsers.classList.add('hide');
     chatWindow.classList.add('show');
   }
-
-  // Add event listeners to each profile-handle
   document.querySelectorAll('.profile-handle').forEach((handle) => {
     const currentUrl = window.location.href;
       if (currentUrl.match(/chat\/room\//)) {
         document.getElementById('chat_window').classList.add('show');
         document.getElementById('main-header').classList.add('hide');
       }
-      // Check if the URL contains 'profiles/'
       else if (currentUrl.match(/profiles\//)) {
         document.getElementById('chat_window').classList.add('hide');
 
       }
-      // If neither of the above conditions are met, remove both classes
       else {
         console.log('neither');
       }

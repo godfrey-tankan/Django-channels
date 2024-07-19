@@ -22,7 +22,22 @@
     {% if onboarding %}
     <a class="button button-gray ml-1" href="{% url 'home' %}">Skip</a>
     {% else %}
-    <a class="button button-gray ml-1" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+    <a class="button button-gray ml-1" href="{{ request.META.HTTP_REFERER }}" >Cancel</a>
+    <script>
+        var genderField = document.getElementById('id_gender');
+        var phoneField = document.getElementById('id_phone');
+
+        if (phoneField && phoneField.value === '') {
+            }
+        else {
+            phoneField.style.display = 'none';
+        }
+
+
+        if (genderField) {
+            genderField.style.display = 'none';
+        }
+    </script>
     {% endif %}
 </form>
 
