@@ -778,6 +778,12 @@ button:focus {
   margin: -15px -15px 0;
   padding: 15px;
 }
+.headings-style{
+  font-weight: bolder;
+  text-transform: capitalize;
+  font-size: 30px;
+  color: #172554;
+}
 
 .relative {
   position: relative;
@@ -5642,6 +5648,7 @@ body {
   color: white;
 }
 
+
 @keyframes steaming {
   0% {
     background-position: 0% 50%;
@@ -5652,4 +5659,17 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+.footer-container{
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+}
+.footer-text{
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
 }

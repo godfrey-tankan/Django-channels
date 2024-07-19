@@ -718,7 +718,7 @@
                 </div>
               </div>
               <div class="info">
-                <h5 class="text-white">Total Members</h5>
+                <h5 class="text-white headings-style">Total Members</h5>
               </div>
             </div>
           </div>
@@ -730,7 +730,7 @@
                 </div>
               </div>
               <div class="info">
-                <p>Active Members</p>
+                <p class="headings-style">Active Members</p>
               </div>
             </div>
           </div>
@@ -742,7 +742,7 @@
                 </div>
               </div>
               <div class="info">
-                <h5>
+                <h5 class="headings-style">
                   {% if is_authenticated %}
                   {% if gender == 'male' %}
                       {{girls_count}}
@@ -751,11 +751,9 @@
                     {% else %}
                     {% endif %}
                   {% else %}
-                  {{ people_count }}
-                    People
                   {% endif %}
                 </h5>
-                <p>
+                <p class="headings-style">
                   
                     {% if gender == 'male' %}
                       Girls
@@ -1086,11 +1084,10 @@
       </div>
       <!-- Fixed Shape -->
 
-      <div class="footer-bottom">
-        <div class="container">
+        <div class="container" style="padding-bottom: 10px;">
           <div class="row">
-            <div class="col-lg-9">
-              <p>
+            <div class="col-lg-9 footer-container">
+              <p class="footer-text">
                 collegelink&copy;2024. All Rights Reserved.
                 <a href="#"></a>
               </p>
@@ -1098,7 +1095,6 @@
           
           </div>
         </div>
-      </div>
       
       <!-- Start Footer Bottom -->
 
