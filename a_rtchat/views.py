@@ -63,7 +63,7 @@ def home(request):
     context =custom_context(request)
     reviews = Reviews.objects.all()[:10]
     try:
-        profiles = Profile.objects.filter(is_active = True)[:5]
+        profiles = Profile.objects.filter(is_active = True)[:6]
     except:
         profiles = None
     context['reviews']= reviews
