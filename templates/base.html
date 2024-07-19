@@ -210,6 +210,87 @@
             padding:10px;
           
         }
+        .profile-actions{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            border: 1px solid #283242 ;
+            box-shadow: 0 1px 6px 1px #0f172a;
+            border-radius: 10px;
+        }
+        .profile-actions i{
+            font-size: 40px;
+            padding: 10px;
+            color: rgb(222, 222, 222);
+           
+        }
+        .profile-actions #like:hover{
+            transition: .3s ease-in-out;
+            transform: matrix(1.2, 0, 0, 1.2, 0, 0);
+            cursor: pointer;
+            color: #164fd3;
+        }
+        #dislike, #block{
+            color: #d03216;
+        }
+        
+        .profile-actions #dislike:hover + .report-tag {
+            visibility: visible;
+            transition: .5s ease-in-out;
+        }
+
+        .report-tag {
+            visibility: hidden;
+            display: flex;
+            position: absolute;
+            bottom: 60px;
+            background-color: #0f172a;
+            border: 1px solid #283242;
+            box-shadow: 0 1px 6px 1px #0f172a;
+            border-radius: 10px;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            left: 40%;
+        }
+
+        .profile-actions #dislike:hover,#block:hover {
+            transform: matrix(1.2, 0, 0, 1.2, 0, 0);
+            cursor: pointer;
+            color: #b74733;
+        }
+
+        #share-contact{
+            font-size: 30px;
+            color: white;
+            padding: 10px;
+        }
+        .profile-share{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            border: 1px solid #283242 ;
+            box-shadow: 0 1px 6px 1px #0f172a;
+            border-radius: 10px;
+
+        }
+        .profile-share i:hover{
+            transition: .3s ease-in-out;
+            transform: matrix(1.4, 0, 0, 1.4, 0, 0);
+            cursor: pointer;
+        }
+        .action-tags{
+            margin-top: 20px;
+        }
+        #initiate-chat{
+            position: absolute;
+            bottom: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
        
         /* Mobile-friendly styles */
         @media (max-width: 767px) {

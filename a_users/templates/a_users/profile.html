@@ -4,21 +4,49 @@
 
 <div class="max-w-lg mx-auto flex flex-col items-center pt-20 px-4">
     <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
-    <div class="text-center">
-        <h1>{{ profile.name }}</h1>
-        <div class="text-white mb-2 -mt-3">@{{ profile.user.username }}</div>
+    <div class="text-center " >
+        <div class="text-white mb-2 mt-3 font-bold">@{{ profile.user.username }} -
+            {% if profile.gender %}
+            {{ profile.gender }}
+            {% endif %}
+        </div>
         {% if profile.info %}
-        <div class="mt-8 hyphens-auto">{{ profile.info|linebreaksbr }}</div>
+        
+        <div class="text-white"><i class='bx bxs-quote-alt-left bx-sm'></i> {{ profile.info|linebreaksbr }}  <i class='bx bxs-quote-alt-right bx-sm'> </i></div>
+        
         {% endif %}
-        {% if profile.gender %}
-        <div class=" text-white ">Gender: {{ profile.gender }}</div>
-        {% endif %}
-        {% if profile.interests %}
-        <div class="text-white text-large"> Interest: {{ profile.interests }}</div>
-        {% endif %}
+
+        <div class="profile-share">
+            
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{% url 'profile' profile.user.username %}" target="_blank" class="text-white">
+                <i id="share-contact" class="bx bxl-facebook" style="color: #2563eb;"></i>
+            </a>
+            <a href="https://wa.me/{{profile.phone}}?text=I'm%20interested%20in%20your%20car%20for%20sale{{ request.get_host }}" target="_blank" class="text-white">
+                <i id="share-contact" class="bx bxl-whatsapp bx-burst-hover" style="color: #10b981;"></i>
+            </a>
+        </div>
+      
+        <!-- {% if profile.interests %}
+        <div class="text-white text-large "> <span style="font-size: 20px;text-transform: capitalize;font-weight: bolder;">Interest:</span> {{ profile.interests }}</div>
+        {% endif %} -->
         {% if profile.user != user %}
-        <a class="button" href="{% url 'start-chat' profile.user.username%}">Start a Chat</a>
+        <div class="start-chat" style="display: flex;justify-content: center;align-items: center;">
+            <a id="initiate-chat" class="button" href="{% url 'start-chat' profile.user.username%}">Start a Chat</a>
+
+        </div>
         {% endif %}
+
+        <div class="profile-actions text-white ">
+            <!-- <span>like {{profile.name}}</span><i id="like" class="bx bxs-like"></i> -->
+
+            
+            <i id="dislike" class="bx bxs-flag-alt"></i>
+            <span class="report-tag">Report {{profile.name}}</span>
+
+            <!-- <span class="block-tag">block {{profile.name}} </span> -->
+
+           <i id="block" class="bx bx-block "></i>
+        </div>
     </div>
 </div>
 
