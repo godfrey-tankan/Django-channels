@@ -23,6 +23,7 @@ def chat_view(request,chatroom_name='public-chat'):
             chatroom_name = 'Real-Friends'
         elif request_user_interests.lower() == 'hookups':
             chatroom_name = 'Hookups'
+            
     chat_group = get_object_or_404(ChatGroup, group_name=chatroom_name)
     chat_messages = chat_group.chat_messages.all()[:20]
     form = ChatMessageCreateForm()
@@ -66,10 +67,33 @@ def home(request):
         profiles = Profile.objects.filter(is_active = True)[:6]
     except:
         profiles = None
+    if request.user.is_authenticated:
+        if request.user.profile.gender == 'male':
+            gender_target= 'female'
+        elif request.user.profile.gender =="female":
+            gender_target ="male"
+        else:
+            gender_target = ''
+            pass
+
+        boys_or_gilrs = Profile.objects.filter(gender=f'{gender_target}').count()
+
+        user_totals =User.objects.all().count()
+        context['reviews']= reviews
+        context['profiles'] = profiles
+        context['boys_or_gilrs']=boys_or_gilrs
+        context['user_totals']=user_totals
+
+        return render(request, 'index.html', context)
+    
+    boys_or_gilrs = Profile.objects.all().count()
+    user_totals =User.objects.all().count()
     context['reviews']= reviews
     context['profiles'] = profiles
-    print('seaching the context/.........',profiles)
+    context['boys_or_gilrs']=boys_or_gilrs
+    context['user_totals']=user_totals
     return render(request, 'index.html', context)
+    
 
 @login_required
 def get_object_or_create_chatroom(request,user_name):
