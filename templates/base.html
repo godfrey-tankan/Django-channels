@@ -29,6 +29,7 @@
             font-optical-sizing: auto;
             font-style: normal;
         }
+
         h1 {
             @apply text-4xl font-bold mb-4
         }
@@ -154,31 +155,41 @@
         margin-top: 20px;
             }
         
-        /* Scrollbar styles */
-    .mobile-chat-container::-webkit-scrollbar {
-      width: 12px;
-    }
-    .profile-handle{
-        background-color: #202b3a;
-    }
-    .profile-handle:hover{
-        background-color: #253040;
-        transition: .3s ease-in-out;
-    }
+            /* Scrollbar styles */
+        .mobile-chat-container::-webkit-scrollbar {
+        width: 12px;
+        }
+        .profile-handle{
+            background-color: #202b3a;
+        }
+        .profile-handle:hover{
+            background-color: #253040;
+            transition: .3s ease-in-out;
+        }
 
 
-    .mobile-chat-container::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
+        .mobile-chat-container::-webkit-scrollbar-track {
+        background-color: transparent;
+        }
 
-    .mobile-chat-container::-webkit-scrollbar-thumb {
-      background-color: #273446;
-      border-radius: 6px;
-    }
+        .mobile-chat-container::-webkit-scrollbar-thumb {
+        background-color: #273446;
+        border-radius: 6px;
+        }
 
-    .mobile-chat-container::-webkit-scrollbar-thumb:hover {
-      background-color: #2e3a4a;
-    }
+        .mobile-chat-container::-webkit-scrollbar-thumb:hover {
+        background-color: #2e3a4a;
+        }
+
+        .auth-forms-container{
+            display: flex; 
+            justify-content: center;
+             align-items: center; 
+             height: 100vh;
+        }
+        .form-content-container{
+            background-color: transparent; border-radius: 1rem; box-shadow: 0 1px 6px 1px #0f172a;
+        }
         /* Mobile-friendly styles */
         @media (max-width: 767px) {
             h1 {
@@ -272,6 +283,9 @@
             .textarea, textarea, input {
                 @apply py-3 px-1;
             }
+
+       
+      
         }
     </style>
 </head>
