@@ -18,6 +18,13 @@
     /* Pretty Modern Browsers */
       url("{% static 'assets/fonts/fontawesome-webfont.svg' %}") format("svg"); /* Legacy iOS */
 }
+@media (max-width: 767px) {
+  #services-bg img{
+      display: none;
+      visibility: hidden;
+    }
+   
+  }
 
 .bg-nav {
   background-color: #203985;
