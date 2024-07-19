@@ -62,7 +62,13 @@ def chat_view(request,chatroom_name='public-chat'):
 def home(request):
     context =custom_context(request)
     reviews = Reviews.objects.all()[:10]
+    try:
+        profiles = Profile.objects.filter(is_active = True)[:5]
+    except:
+        profiles = None
     context['reviews']= reviews
+    context['profiles'] = profiles
+    print('seaching the context/.........',profiles)
     return render(request, 'index.html', context)
 
 @login_required
@@ -113,6 +119,7 @@ def reviews(request):
         reviews = Reviews.objects.all()[:10]
     except:
         reviews =None
+    
     context ={
         'reviews':reviews
     }

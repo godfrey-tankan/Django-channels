@@ -506,7 +506,7 @@
             <p>Tired Of Being Alone</p>
 
             <p >
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAZxJREFUSEu11D9IV2EUxvGPkiFFUJCgNBQkGLQ0RZNlGEJTDUHU5KSDQUOCQ1AEDYFj0uDi4hAqJtTYXxpqica21oawgkACo94Dr3Ap7+/+EQ9c7oXL+Z7znuc5b5ddjK5dZNsJ/AieYR2X8ePfRtvCj+I14h3xAWfxs1igDfx4BkfnK+jDMN7hQrFAU/gg3mAgg69iL56mgiO5wDn8ihM0gZ9IR3+JfizhGjbzGC5hNX9HkVdN4EN4i8MZcgW/MyxGEcL2pP8PcWNr7nU6P5k7qQLPYrqJoKeSWC9wqKLje7jTxIohXljsAB7jemEUY1nEPWnut9NI7m+3jJ3GcrfQTXg4XBJxEWsI8AwelG15J/jzBDyfEzeSoKPYXxAvhAsBS6MMHl19z7Ct5CgQjoh/U2l55qrupTL4abzfJvkPJjBfBe7k80eYLAA+52Kx7st1wGXw2LzFDAix4vlWF9jJ593p4rmFfWmuX6sEqypYZ0OrGLXdcjC55GZrGk/wsexuOYYQr22MY6EM3oszbcn4lFz2pQy+A+7/qX8B/C1FGDPN2CwAAAAASUVORK5CYII="/>
+              <i class="bx bx-info-circle bx-burst-hover bx-sm"></i>
               This platform makes college life enjoyable by connecting you with what you are looking for, love, fun or just a friend, we got you covered,
               we have a wide range of profiles to choose from and we'll recommend the best match for you according to your preferences.
             </p>
@@ -590,131 +590,52 @@
             <div class="col-lg-12">
               <div class="gallery-content">
                 <!-- End Mixitup Nav-->
-
                 <div class="masonary">
                   <div
                     id="portfolio-grid"
-                    class="gallery-items projects-items colums-3"
-                  >
+                    class="gallery-items projects-items colums-3">
                     <!-- Single Item -->
+                     {% if profiles %}
+                      {% for each_profile in profiles %}
+                      <div class="pf-item development capital">
+                        <div class="item">
+                          <div class="thumb">
+                            <div class="div-gallery-container">
+                            <img src="{{ each_profile.avatar }}" alt="Thumb" />
+                            </div>
+                            <div class="overlay">
+                              <a
+                                href="{{ each_profile.avatar }}"
+                                class="item popup-gallery"
+                                ><i class="bx bx-expand bx-burst-hover"></i
+                              ></a>
+                            </div>
+                          </div>
+                          <div class="info">
+                            <h5><a href="#">{{each_profile.name}}</a></h5>
+                            <span style="text-transform: lowercase;">@{{each_profile.user.username}} </span>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    {% else %}
                     <div class="pf-item development capital">
                       <div class="item">
                         <div class="thumb">
-                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
+                          <img src="{% static 'assets/img/love2.png' %}" alt="Thumb" />
                           <div class="overlay">
                             <a
-                              href="{% static 'assets/img/1.png' %}"
+                              href="{% static 'assets/img/love2.png' %}"
                               class="item popup-gallery"
-                              ><i class="fa fa-plus"></i
-                            ></a>
+                              ><i class="fa fa-plus"></i>
+                            </a>
                           </div>
                         </div>
                         <div class="info">
-                          <h5><a href="#">QUINNEL & JONET</a></h5>
-                          <span>QUINNEL & JONET </span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="pf-item width-xl consulting branding">
-                      <div class="item">
-                        <div class="thumb">
-                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
-                          <div class="overlay">
-                            <a
-                              href="{% static 'assets/img/1.png' %}"
-                              class="item popup-gallery"
-                              ><i class="fa fa-plus"></i
-                            ></a>
-                          </div>
-                        </div>
-                        <div class="info">
-                          <h5><a href="#">ADAM & EVE</a></h5>
-                          <span> ADAM & EVE </span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="pf-item consulting finance">
-                      <div class="item">
-                        <div class="thumb">
-                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
-                          <div class="overlay">
-                            <a
-                              href="{% static 'assets/img/1.png' %}"
-                              class="item popup-gallery"
-                              ><i class="fa fa-plus"></i
-                            ></a>
-                          </div>
-                        </div>
-                        <div class="info">
-                          <h5><a href="#">BELLA & EDWARD</a></h5>
-                          <span> BELLA & EDWARD </span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="pf-item finance">
-                      <div class="item">
-                        <div class="thumb">
-                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
-                          <div class="overlay">
-                            <a
-                              href="{% static 'assets/img/1.png' %}"
-                              class="item popup-gallery"
-                              ><i class="fa fa-plus"></i
-                            ></a>
-                          </div>
-                        </div>
-                        <div class="info">
-                          <h5><a href="#">DEMI & HEAVEN</a></h5>
-                          <span>DEMI & HEAVEN</span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="pf-item capital development">
-                      <div class="item">
-                        <div class="thumb">
-                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
-                          <div class="overlay">
-                            <a
-                              href="{% static 'assets/img/1.png' %}"
-                              class="item popup-gallery"
-                              ><i class="fa fa-plus"></i
-                            ></a>
-                          </div>
-                        </div>
-                        <div class="info">
-                          <h5><a href="#">DAVID & BATHSHEBA</a></h5>
-                          <span> DAVID & BATHSHEBA </span>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="pf-item finance">
-                      <div class="item">
-                        <div class="thumb">
-                          <img src="{% static 'assets/img/1.png' %}" alt="Thumb" />
-                          <div class="overlay">
-                            <a
-                              href="{% static 'assets/img/1.png' %}"
-                              class="item popup-gallery"
-                              ><i class="fa fa-plus"></i
-                            ></a>
-                          </div>
-                        </div>
-                        <div class="info">
-                          <h5><a href="#">EROS & PSYCHI</a></h5>
-                          <span> EROS & PSYCHI</span>
-                        </div>
-                      </div>
-                    </div>
+                          <h5><a href="#">No Profiles</a></h5>
+                          <span>No Profiles</span>
+                    {% endif %}
+                   
                     <!-- Single Item -->
                     
                     <!-- End Single Item -->
