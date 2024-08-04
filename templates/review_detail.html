@@ -1,118 +1,123 @@
-
-{% extends 'layouts/blank.html' %} 
-{% load static %}
-{% block content %}
+{% extends 'layouts/blank.html' %} {% load static %} {% block content %}
 
 <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
 <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-<div class="flex justify-center items-center" style="margin-bottom: 10%;" >
-    
-    <div class="w-full max-w-6xl">
-      <h4 class="text-2xl font-bold text-black text-center" style="margin-top: 10%; margin-bottom: 2rem;"> | REVIEWS</h4>
-      
-      {% if reviews %}
-      <div class="grid grid-cols-2 gap-8">
-        {% for review in reviews %}
-        <div class="bg-gray-800 rounded-lg p-8">
-          <h4 class="text-2xl font-bold text-white mb-4">&mdash; {{ review.name }} </h4>
-          <p class="text-gray-400 text-lg leading-relaxed">" {{ review.review }} " </p>
-        </div>
-        {% endfor %}
+<div class="flex justify-center items-center" style="margin-bottom: 10%">
+  <div class="w-full max-w-6xl">
+    <h4
+      class="text-2xl font-bold text-black text-center"
+      style="margin-top: 10%; margin-bottom: 2rem"
+    >
+      | REVIEWS
+    </h4>
+
+    {% if reviews %}
+    <div class="grid grid-cols-2 gap-8">
+      {% for review in reviews %}
+      <div class="bg-gray-800 rounded-lg p-8">
+        <h4 class="text-2xl font-bold text-white mb-4">
+          &mdash; {{ review.name }}
+        </h4>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          " {{ review.review }} "
+        </p>
       </div>
-      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<footer class="bg-dark text-light">
+  <!-- Footer Top -->
+
+  <!-- End Footer Top -->
+
+  <div class="container">
+    <div class="f-items default-padding">
+      <div class="row">
+        <!-- Single Item -->
+        <div class="col-lg-4 col-md-6 single-item">
+          <div class="f-item contact">
+            <h4 class="widget-title">Contact Us</h4>
+            <p>1234 Spun Rd</p>
+            <ul>
+              <li>
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAihJREFUSEu11UvIjVEUBuDnJyJRKEUuRaRIcslAFEmUKJcwYCAkAwrFQFEGcokYyG0khUJMUJIRJiSFgdwvZUS5lFuxV+1T33/+71ycv3/X6fR9a+93vXutd71fmy5cbV2IrVnwOTiAsXiPYzjciFgz4MtwgQ5E9mN7vQSNwHvhM+J/E85hOs6gH6bgQa0EjcAn4iHuZtAKTpRoW0q8GUdbBR+Gt/k3Bj8z0FUsxCqcbRU8zsW1J2X20cTFWJmYf8OIVK5PnQEP4Jvp+gMKIL+xOqnnfGcaWjkbzduLjbiTmb9rVYrdsSSzPZ5BVmS1nMCG/G4WJuA0vlcnK1PLXJzM9XyJUXXAT6WhWpvrvyvJ81AxQTX4HuzMG2JwjuBeHfBoaMgxbtIb1/KNf8SZIvhWHMyyC0VUD0dZWSpEB+cpnpGbHGpqB/4MozEV90uaNQ/XE8N92FES74/nuU8DQ6IV5j3wK2s2AmWrGx5jPt7U2HMlTfQizMbtYlk+pEYOwXg8qXF4eC5bWThq/jo55qDkPSPxqggeXhGeEZa6Djca6bgQDzmGwqYlchcTuXDSdjWPROF6ywv+sTuX4k9JotgffrMeW3L8EWam5y/V4PEcdY2Ghb32zAcC+Cmi4S/SwAzNH41x2Ypj219cSiVbg68VIrUst29SzILEeiniKxTjX71Cy7eyti8nrX9sZkKr98RtJqd+9CkEwnpjDkJhNVejj8V/9LTj1n/q8WUYYR0+0QAAAABJRU5ErkJggg=="
+                />
+
+                Harare, 263271772921
+              </li>
+              <li>
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAYFJREFUSEvd1b9LVnEUx/GXZgohGEEUCFmD4BJBkYNLc9IvJwkhxaHNlmppiKDASXB3sCFqsnJSqD+gIWhoddDISfAnSjpU3xPfCw9PPvL0XGzwu13u+b7POZ/zuec2OcTTdIhsRwM+kiR6hq4SUm1iCo+CUcjSijUcw6cS8B6cwVV8LuAnM/wHbuFDAwnO4SO6MYD31fBg/szyvMCvOpNcxxt05Ph94XtoQTPmcRfrBySIuOd4kmN2cKK68sgYkEUMRUs4jW9Juxv4uk+CU3iLawkeRT3ElcQIY9zBbCFLJfwCzmIGfdjFWHZBkaM3gzuxjJv4gpcYrqX5Ugo4nwnhnHE8zs+vUyejuI8JHM8DHMRqjqkbXlR5G6/QjpUsV7x7muZTPfR/hgcopJpNUl3MVUa1Ybvq0xA8IG0J/CBb7nsNBzUMr8fy/x8ext/GBibrKbFGTPj7EvoxV7nP32Xzl2D/ubqAy+mj2qqEh6/vlVy50fl0sTKOxp+orNZ/3f8NU29bGKXZUS4AAAAASUVORK5CYII="
+                />
+
+                love@collegelinkco.zw
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End Single Item -->
+        <!-- Single Item -->
+        <div class="col-lg-2 col-md-6 single-item">
+          <div class="f-item link">
+            <h4 class="widget-title">Services</h4>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">testmonials</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End Single Item -->
+        <!-- Single Item -->
+        <div class="col-lg-2 col-md-6 single-item">
+          <div class="f-item link">
+            <h4 class="widget-title">Useful Links</h4>
+            <ul>
+              <li>
+                <a href="#">Terms of user</a>
+              </li>
+
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <!-- <img src="{% static 'assets/img/couples1.jpg' %}" alt=""> -->
+        </div>
+        <!-- End Single Item -->
+        <!-- Single Item -->
+
+        <!-- End Single Item -->
+      </div>
+    </div>
+  </div>
+  <!-- Fixed Shape -->
+
+  <div class="container" style="padding-bottom: 10px">
+    <div class="row">
+      <div class="col-lg-9 footer-container">
+        <p class="footer-text">
+          collegelink&copy;2024. All Rights Reserved.
+          <a href="#"></a>
+        </p>
+      </div>
     </div>
   </div>
 
-<footer class="bg-dark text-light">
-      
-    <!-- Footer Top -->
+  <!-- Start Footer Bottom -->
 
-    <!-- End Footer Top -->
-
-    <div class="container">
-      <div class="f-items default-padding">
-        <div class="row">
-          <!-- Single Item -->
-          <div class="col-lg-4 col-md-6 single-item">
-            <div class="f-item contact">
-              <h4 class="widget-title">Contact Us</h4>
-              <p>1234 Spun Rd</p>
-              <ul>
-                <li>
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAihJREFUSEu11UvIjVEUBuDnJyJRKEUuRaRIcslAFEmUKJcwYCAkAwrFQFEGcokYyG0khUJMUJIRJiSFgdwvZUS5lFuxV+1T33/+71ycv3/X6fR9a+93vXutd71fmy5cbV2IrVnwOTiAsXiPYzjciFgz4MtwgQ5E9mN7vQSNwHvhM+J/E85hOs6gH6bgQa0EjcAn4iHuZtAKTpRoW0q8GUdbBR+Gt/k3Bj8z0FUsxCqcbRU8zsW1J2X20cTFWJmYf8OIVK5PnQEP4Jvp+gMKIL+xOqnnfGcaWjkbzduLjbiTmb9rVYrdsSSzPZ5BVmS1nMCG/G4WJuA0vlcnK1PLXJzM9XyJUXXAT6WhWpvrvyvJ81AxQTX4HuzMG2JwjuBeHfBoaMgxbtIb1/KNf8SZIvhWHMyyC0VUD0dZWSpEB+cpnpGbHGpqB/4MozEV90uaNQ/XE8N92FES74/nuU8DQ6IV5j3wK2s2AmWrGx5jPt7U2HMlTfQizMbtYlk+pEYOwXg8qXF4eC5bWThq/jo55qDkPSPxqggeXhGeEZa6Djca6bgQDzmGwqYlchcTuXDSdjWPROF6ywv+sTuX4k9JotgffrMeW3L8EWam5y/V4PEcdY2Ghb32zAcC+Cmi4S/SwAzNH41x2Ypj219cSiVbg68VIrUst29SzILEeiniKxTjX71Cy7eyti8nrX9sZkKr98RtJqd+9CkEwnpjDkJhNVejj8V/9LTj1n/q8WUYYR0+0QAAAABJRU5ErkJggg=="/>
-
-                  Harare, 263271772921
-                </li>
-                <li>
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAAAYFJREFUSEvd1b9LVnEUx/GXZgohGEEUCFmD4BJBkYNLc9IvJwkhxaHNlmppiKDASXB3sCFqsnJSqD+gIWhoddDISfAnSjpU3xPfCw9PPvL0XGzwu13u+b7POZ/zuec2OcTTdIhsRwM+kiR6hq4SUm1iCo+CUcjSijUcw6cS8B6cwVV8LuAnM/wHbuFDAwnO4SO6MYD31fBg/szyvMCvOpNcxxt05Ph94XtoQTPmcRfrBySIuOd4kmN2cKK68sgYkEUMRUs4jW9Juxv4uk+CU3iLawkeRT3ElcQIY9zBbCFLJfwCzmIGfdjFWHZBkaM3gzuxjJv4gpcYrqX5Ugo4nwnhnHE8zs+vUyejuI8JHM8DHMRqjqkbXlR5G6/QjpUsV7x7muZTPfR/hgcopJpNUl3MVUa1Ybvq0xA8IG0J/CBb7nsNBzUMr8fy/x8ext/GBibrKbFGTPj7EvoxV7nP32Xzl2D/ubqAy+mj2qqEh6/vlVy50fl0sTKOxp+orNZ/3f8NU29bGKXZUS4AAAAASUVORK5CYII="/>
-
-                  love@collegelinkco.zw
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- End Single Item -->
-          <!-- Single Item -->
-          <div class="col-lg-2 col-md-6 single-item">
-            <div class="f-item link">
-              <h4 class="widget-title">Services</h4>
-              <ul>
-                <li>
-                  <a href="/">Home</a>
-                </li>
-                <li>
-                  <a href="/#testimonials">testmonials</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- End Single Item -->
-          <!-- Single Item -->
-          <div class="col-lg-2 col-md-6 single-item">
-            <div class="f-item link">
-              <h4 class="widget-title">Useful Links</h4>
-              <ul>
-                <li>
-                  <a href="terms">Terms of user</a>
-                <li>
-                  <a href="/#contact">Contact Us</a>
-                </li>
-              </ul>
-            </div>
-            <!-- <img src="{% static 'assets/img/couples1.jpg' %}" alt=""> -->
-          </div>
-          <!-- End Single Item -->
-          <!-- Single Item -->
-  
-          <!-- End Single Item -->
-        </div>
-      </div>
-    </div>
-    <!-- Fixed Shape -->
-
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <p>
-              collegelink&copy;2024. All Rights Reserved.
-              <a href="clava.co.zw"></a>
-            </p>
-          </div>
-        
-        </div>
-      </div>
-    </div>
-    
-    <!-- Start Footer Bottom -->
-
-    <div class="fixed-shape">
-      <img src="{% static 'assets/img/shape/3.svg' %}" alt="Shape" />
-    </div>
-    <!-- End Fixed Shape -->
-  </footer>
+  <div class="fixed-shape">
+    <img src="{% static 'assets/img/shape/3.svg' %}" alt="Shape" />
+  </div>
+  <!-- End Fixed Shape -->
+</footer>
 {% endblock %}
-
-
