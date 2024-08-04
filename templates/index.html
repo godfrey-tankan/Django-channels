@@ -1146,6 +1146,10 @@
   };
 
   // Send the POST request using Axios
+  if (!formData.name || !formData.comments) {
+    alert('Please fill in the required fields');
+    return;
+  }
   axios.post('/reviews/', formData, {
     headers: {
       'X-CSRFToken': csrfToken, // Include the CSRF token in the request headers
