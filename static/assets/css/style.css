@@ -2564,9 +2564,7 @@ body,
 }
 @media (max-width: 575px) {
   #banner-contents {
-    padding-top: 50px;
     background-color: transparent;
-    padding-bottom: 40px;
   }
   #actions-menu {
     margin-top: 70px;

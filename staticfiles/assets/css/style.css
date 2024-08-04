@@ -23,9 +23,8 @@
   background-color: #203985;
 }
 
-.image-styles{
+.image-styles {
   padding: 300px;
-
 }
 
 * {
@@ -289,14 +288,14 @@ input {
 .bg-theme {
   background-color: #203985;
 }
-.text-styles{
+.text-styles {
   font-size: 30px;
   color: #3d3d3d;
   align-items: center;
   justify-content: center;
   display: flex;
 }
-.home-nav{
+.home-nav {
   display: none;
   visibility: hidden;
 }
@@ -2802,15 +2801,6 @@ body,
 @media (max-width: 768px) {
   .navbar-nav {
     display: none;
-  }
-  .carousel-inner {
-    padding-bottom: 50%;
-    display: flex;
-    background: radial-gradient(
-      circle at 10% 90%,
-      white,
-      #007bff
-    ); /* White to Blue gradient */
   }
 
   .navbar-toggle {
