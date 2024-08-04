@@ -332,7 +332,7 @@ input {
 
 .shadow.dark::after {
   background: #000000 none repeat scroll 0 0;
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.5;
@@ -344,7 +344,7 @@ input {
 
 .shadow.dark-hard::after {
   background: #000000 none repeat scroll 0 0;
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.75;
@@ -356,7 +356,7 @@ input {
 
 .shadow.light::after {
   background: #ffffff none repeat scroll 0 0;
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.3;
@@ -368,7 +368,7 @@ input {
 
 .shadow.theme::after {
   background: #203985 none repeat scroll 0 0;
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.5;
@@ -380,7 +380,7 @@ input {
 
 .shadow.theme-hard::after {
   background: #203985 none repeat scroll 0 0;
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.7;
@@ -392,7 +392,7 @@ input {
 
 .shadow.gradient-theme::after {
   background: linear-gradient(to bottom, #0b1492 0%, #114dbb 100%);
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.6;
@@ -404,7 +404,7 @@ input {
 
 .shadow.gradient-dark::after {
   background: linear-gradient(to bottom, #022147 0%, #2a3644 100%);
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.6;
@@ -418,7 +418,7 @@ input {
   position: absolute;
   left: 0;
   top: 0;
-  content: "";
+
   background: rgba(0, 0, 0, 0)
     linear-gradient(
       to left,
@@ -497,7 +497,7 @@ button:focus {
   right: 30px;
   top: 50%;
   margin-top: -7px;
-  content: "";
+
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   border-left: 8px solid #232323;
@@ -718,7 +718,7 @@ button:focus {
 .site-heading h2::before {
   background: #203985 none repeat scroll 0 0;
   bottom: 0;
-  content: "";
+
   height: 2px;
   left: 50%;
   margin-left: -25px;
@@ -729,7 +729,7 @@ button:focus {
 .site-heading h2::after {
   background: #203985 none repeat scroll 0 0;
   bottom: 0;
-  content: "";
+
   height: 2px;
   left: 50%;
   margin-left: 20px;
@@ -895,7 +895,7 @@ button:focus {
   position: absolute;
   right: 0;
   top: -100%;
-  content: "";
+
   height: 300%;
   width: 500%;
   background: #203985;
@@ -1012,7 +1012,7 @@ button:focus {
   position: absolute;
   left: 0;
   top: 6px;
-  content: "";
+
   height: 20px;
   width: 1px;
   background: rgba(255, 255, 255, 0.3);
@@ -1040,7 +1040,7 @@ button:focus {
   position: absolute;
   left: 0;
   top: -35px;
-  content: "";
+
   height: 100px;
   width: 200%;
   background: linear-gradient(0deg, #ff9c19 40%, #ffdd2d 110%);
@@ -1105,7 +1105,7 @@ button:focus {
 
 .breadcrumb-area .breadcrumb li::after {
   background: #ffffff none repeat scroll 0 0;
-  content: "";
+
   height: 10px;
   left: -1px;
   margin-top: -5px;
@@ -1196,7 +1196,7 @@ body,
   border-right: 100vw solid #fff;
   border-top: 80px solid transparent;
   bottom: 0;
-  content: "";
+
   height: 0;
   left: 0;
   position: absolute;
@@ -1417,7 +1417,7 @@ body,
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  content: "";
+
   height: 100%;
   left: 0;
   opacity: 0.5;
@@ -1494,7 +1494,7 @@ body,
   position: absolute;
   left: 50%;
   top: 50%;
-  content: "";
+
   height: 5px;
   width: 5px;
   transform: translate(-50%, -50%);
@@ -1700,7 +1700,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 10px;
   width: 100%;
   background: #203985;
@@ -1733,7 +1733,6 @@ body,
 }
 
 .video-play-button:before {
-  content: "";
   position: absolute;
   z-index: 0;
   left: 50%;
@@ -1752,7 +1751,6 @@ body,
 }
 
 .video-play-button:after {
-  content: "";
   position: absolute;
   z-index: 1;
   left: 50%;
@@ -1928,7 +1926,7 @@ body,
   position: absolute;
   right: -50px;
   top: -50px;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: url(assets/img/pattern.png);
@@ -1964,7 +1962,7 @@ body,
   position: absolute;
   left: -25%;
   bottom: 0;
-  content: "";
+
   height: 1px;
   width: 150%;
   background: #e7e7e7;
@@ -2025,7 +2023,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 60%;
   width: 100%;
   background: #022147;
@@ -2050,7 +2048,7 @@ body,
   position: absolute;
   left: -50px;
   top: -50px;
-  content: "";
+
   height: 300px;
   width: 300px;
   background: url(assets/img/pattern.png);
@@ -2094,7 +2092,7 @@ body,
   position: absolute;
   left: 50%;
   top: 50%;
-  content: "";
+
   height: 120px;
   width: 120px;
   transform: translate(-50%, -50%);
@@ -2150,7 +2148,7 @@ body,
   position: absolute;
   left: 0;
   top: 0;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: #000000;
@@ -2238,7 +2236,7 @@ body,
   position: absolute;
   right: 0;
   top: 0;
-  content: "";
+
   height: 100%;
   width: 1px;
   background: rgba(255, 255, 255, 0.2);
@@ -2305,7 +2303,6 @@ body,
   position: absolute;
   right: -28px;
   top: 4px;
-  content: "\f067";
   color: #203985;
   font-size: 26px;
   font-weight: 800;
@@ -2333,7 +2330,7 @@ body,
   position: absolute;
   left: 1px;
   top: 1px;
-  content: "";
+
   height: 100%;
   width: 100%;
   border: 2px solid rgba(255, 255, 255, 0.5);
@@ -2374,7 +2371,7 @@ body,
   position: absolute;
   left: 0;
   bottom: -1px;
-  content: "";
+
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -2398,7 +2395,7 @@ body,
   position: absolute;
   left: 0;
   top: 0;
-  content: "";
+
   height: 100%;
   background: #ffffff;
   width: 100%;
@@ -2454,7 +2451,7 @@ body,
   position: absolute;
   left: 0;
   bottom: -5px;
-  content: "";
+
   height: 1px;
   width: 30px;
   border-bottom: 1px dashed;
@@ -2500,7 +2497,7 @@ body,
   position: absolute;
   left: 1px;
   top: -7px;
-  content: "";
+
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 6px solid #203985;
@@ -2537,7 +2534,7 @@ body,
   position: absolute;
   left: 100%;
   top: 50%;
-  content: "";
+
   height: 1px;
   width: 100px;
   background: #dddddd;
@@ -2625,7 +2622,7 @@ body,
   position: absolute;
   left: 0;
   top: 50%;
-  content: "";
+
   height: 1px;
   width: 80px;
   background: #203985;
@@ -2658,7 +2655,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 10px;
   width: 100%;
   background: #203985;
@@ -2718,7 +2715,7 @@ body,
   position: absolute;
   left: 0;
   top: 12px;
-  content: "";
+
   height: 7px;
   width: 7px;
   background: #cccccc;
@@ -2941,7 +2938,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 3px;
   width: 0;
   background: #203985;
@@ -2967,7 +2964,7 @@ body,
   position: absolute;
   left: -20px;
   top: -20px;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: #203985;
@@ -3047,7 +3044,6 @@ body,
 /* Animation */
 .work-process-area .work-pro-items .item::before,
 .work-process-area .work-pro-items .item::after {
-  content: "";
   width: 0;
   height: 2px;
   position: absolute;
@@ -3057,7 +3053,6 @@ body,
 
 .work-process-area .work-pro-items .item .item-inner::before,
 .work-process-area .work-pro-items .item .item-inner::after {
-  content: "";
   width: 2px;
   height: 0;
   position: absolute;
@@ -3175,7 +3170,7 @@ body,
   position: absolute;
   left: 0;
   top: -70px;
-  content: "";
+
   height: 150px;
   width: 150px;
   background: #203985;
@@ -3207,7 +3202,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 50%;
   width: 100%;
   background: #203985 none repeat scroll 0 0;
@@ -3250,7 +3245,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 3px;
   width: 100%;
   background: #203985;
@@ -3332,7 +3327,7 @@ body,
   position: absolute;
   right: -20px;
   top: 0;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: linear-gradient(62.5deg, transparent, rgba(0, 0, 0, 0.05));
@@ -3430,7 +3425,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 50%;
   width: 100%;
   transition: all 0.35s ease-in-out;
@@ -3569,7 +3564,7 @@ body,
   position: absolute;
   left: 0;
   bottom: -50%;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0)
@@ -3620,7 +3615,7 @@ body,
   position: absolute;
   left: 50%;
   bottom: -3px;
-  content: "";
+
   height: 10px;
   width: 100%;
   transform: translate(-50%, 0);
@@ -3670,7 +3665,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 50%;
   width: 100%;
   background: #022147 none repeat scroll 0 0 !important;
@@ -3736,7 +3731,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 15px;
   width: 100%;
   background: #203985;
@@ -3965,7 +3960,7 @@ body,
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 10px;
   width: 100%;
   background: #203985;
@@ -4102,7 +4097,7 @@ body,
   position: absolute;
   left: 1px;
   top: -7px;
-  content: "";
+
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 6px solid #203985;
@@ -4193,7 +4188,7 @@ a.simple::after {
   position: absolute;
   left: 0;
   top: 50%;
-  content: "";
+
   height: 1px;
   width: 20px;
   background: #203985;
@@ -4224,7 +4219,7 @@ i.fas.fa-calendar {
   position: absolute;
   right: 0;
   top: 50%;
-  content: "";
+
   height: 20px;
   width: 1px;
   background: #cccccc;
@@ -4360,7 +4355,7 @@ i.fas.fa-calendar {
   position: absolute;
   left: 0;
   bottom: 0;
-  content: "";
+
   height: 10px;
   width: 100%;
   background: #203985;
@@ -4430,7 +4425,7 @@ i.fas.fa-calendar {
   position: absolute;
   left: 0;
   top: 12px;
-  content: "";
+
   height: 7px;
   width: 7px;
   background: #cccccc;
@@ -4751,7 +4746,7 @@ i.fas.fa-calendar {
   position: absolute;
   left: 0;
   top: 11px;
-  content: "";
+
   background: #666666;
   height: 7px;
   width: 7px;
@@ -4811,7 +4806,7 @@ i.fas.fa-calendar {
   position: absolute;
   left: 0;
   top: 50%;
-  content: "";
+
   height: 1px;
   width: 80px;
   background: #203985;
@@ -5161,7 +5156,7 @@ i.fas.fa-calendar {
   position: absolute;
   left: 0;
   top: 0;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: #ededed;
@@ -5236,7 +5231,7 @@ i.fas.fa-calendar {
   position: absolute;
   left: 0;
   top: 0;
-  content: "";
+
   height: 100%;
   width: 100%;
   background: url("{% static 'assets/img/1.jpg' %}");
@@ -5531,7 +5526,7 @@ footer .link ul li::after {
   position: absolute;
   left: 0;
   top: 9px;
-  content: "";
+
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 6px solid #bcb3b3;
