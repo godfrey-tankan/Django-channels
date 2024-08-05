@@ -12,7 +12,6 @@ def user_postsave(sender, instance, created, **kwargs):
             user = user,
         )
     else:
-        # update allauth emailaddress if exists 
         try:
             email_address = EmailAddress.objects.get_primary(user)
             if email_address.email != user.email:
@@ -20,7 +19,6 @@ def user_postsave(sender, instance, created, **kwargs):
                 email_address.verified = False
                 email_address.save()
         except:
-            # if allauth emailaddress doesn't exist create one
             EmailAddress.objects.create(
                 user = user,
                 email = user.email, 
